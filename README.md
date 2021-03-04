@@ -27,7 +27,7 @@
 <br>
 
 <p><strong>INTRODUCTION</strong></p>
-<p>AR Schoolbook is a project that aims to provide an Augmented Reality android app for high school books in Bangladesh according to NCTB (National Curriculum and Textbook Board). The initial prototype will only cover one book in particular- class 7, Science book. The aim is to create a fun and modern learning experience for students and also help teachers better prepare their lessons. We wish to combine “fun smartphones” with “boring books” to establish a middle ground where smartphones are not just a source of time waste and books are fun.</p>
+<p>AR Schoolbook is a project that aims to provide an Augmented Reality android app for high school books in Bangladesh according to NCTB (National Curriculum and Textbook Board). The initial prototype will only cover one book in particular- <a href="http://nctb.gov.bd/site/page/f6f263b8-7533-460c-a8aa-9f2c3d203705">class 7, Science book</a>. The aim is to create a fun and modern learning experience for students and also help teachers better prepare their lessons. We wish to combine “fun smartphones” with “boring books” to establish a middle ground where smartphones are not just a source of time waste and books are fun.</p>
 
 <br>
 

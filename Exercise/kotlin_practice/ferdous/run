@@ -1,0 +1,15 @@
+#!/bin/bash
+
+clear
+
+kotlinc Main.kt -include-runtime -d Main.jar
+
+echo
+echo '-------------------- Start of program --------------------'
+echo
+
+java -jar Main.jar
+
+echo
+echo '--------------------- End of program ---------------------'
+echo

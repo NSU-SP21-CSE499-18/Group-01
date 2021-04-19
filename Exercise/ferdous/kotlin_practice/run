@@ -2,14 +2,27 @@
 
 clear
 
+execute_code()
+{
+    clear
+
+    echo
+    echo '-------------------- Start of program --------------------'
+    echo
+
+    java -jar Main.jar
+
+    echo
+    echo '--------------------- End of program ---------------------'
+    echo
+}
+
 kotlinc Main.kt -include-runtime -d Main.jar
 
-echo
-echo '-------------------- Start of program --------------------'
-echo
-
-java -jar Main.jar
-
-echo
-echo '--------------------- End of program ---------------------'
-echo
+FILE=Main.jar
+if [ -f "$FILE" ]; then # Main.jar file exists, code ran without error
+    execute_code
+    rm Main.jar
+else # Main.jar file does not exist, there was an error
+    echo "Compilation Error!"
+fi

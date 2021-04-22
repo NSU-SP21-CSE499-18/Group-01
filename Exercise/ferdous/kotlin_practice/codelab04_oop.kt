@@ -1,8 +1,4 @@
 /**
- * execution space for currently practicing codelab
- */
-
-/**
  * Inheritance (& Polymorphism)
  */
 
@@ -68,6 +64,24 @@ public class AWSNecessityProductDao: NecessityProductDao{
     }
 }
 
+/**
+ * Singleton, Enum
+ */
+
+// singletone class
+object SingletonClass{
+
+    var someAttribute: Int = -1
+} 
+
+// enum
+enum class Shop(val value: String) {
+
+    BAKERY("bakery"), 
+    CONVENTIONAL("conventional"), 
+    STATIONARY("stationary"),
+}
+
 
 fun main(args: Array<String>) {
 
@@ -79,15 +93,22 @@ fun main(args: Array<String>) {
 
     // interface & polymorphism
     var awsDao: NecessityProductDao = AWSNecessityProductDao()
-    
     var newProduct: NecessityProduct = NecessityProduct(name="Toilet Paper", price=50, sale=0)
-    
     awsDao.writeNecessityProduct(newProduct)
-
     var productsInAws = awsDao.readAllNecessityProductsBelowPrice(120)
     println("Product List -> ")
     productsInAws.forEach{
 
         println("${it.name} (${it.price}taka)")
     }
+
+    println()
+
+    // singleton
+    SingletonClass.someAttribute = 30
+    println(SingletonClass.someAttribute)
+
+    // enum
+    var shopType: String = Shop.CONVENTIONAL.value
+    println(shopType)
 }

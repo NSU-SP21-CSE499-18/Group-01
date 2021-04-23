@@ -23,7 +23,4 @@ fun main()
         print("$x  ")
         x--
     }
-
-
-
 }

@@ -2,7 +2,6 @@ fun main()
 {
     val value = 11
     if(isPrime(value)) println("Number is prime") else println("Number is not prime")
-
     val start = 1
     val end = 100000
     println("Number of Primes: ${countPrime(start,end)}")

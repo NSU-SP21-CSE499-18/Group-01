@@ -107,7 +107,13 @@ val User.userFormattedName: String
         }
     }
 
-// usage:
-val user = User("Jon", "Snow")
-val name = user.getFormattedName()
-val formattedName = user.userFormattedName
+fun main(){
+    // usage:
+    val user = User(firstName = null, lastName = "Snow")
+    val name = user.getFormattedName()
+    val formattedName = user.userFormattedName
+
+    println(name)
+    println()
+    println(formattedName)
+}

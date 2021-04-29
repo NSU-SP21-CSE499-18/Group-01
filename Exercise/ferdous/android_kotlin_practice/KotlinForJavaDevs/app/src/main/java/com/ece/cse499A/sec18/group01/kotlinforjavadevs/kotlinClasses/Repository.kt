@@ -1,7 +1,5 @@
 package com.ece.cse499A.sec18.group01.kotlinforjavadevs.kotlinClasses
 
-import java.util.*
-
 /**
  * Kotlin conversion of javaClasses/Repository.java class
  *
@@ -18,15 +16,25 @@ import java.util.*
  *  use list.map { listItem -> ... }  to generate another list by iterating over the original list
  */
 object Repository {
-    private val users = mutableListOf<User>()
+    private val _users = mutableListOf<User>()
+
+    // properly expose the _users list to outside
+    val users: MutableList<User>
+        get() = _users
+
+    /**
+     * bad idea to expose _users list like this,
+     * because it allows the main list can be edited from outside
+
     fun getUsers(): List<User> {
-        return users
+        return _users
     }
+     */
 
     val formattedUserNames: List<String>
         get() {
 
-            return users.map { user ->
+            return _users.map { user ->
                 if(user.lastName!=null){
                     if(user.firstName!=null) "${user.firstName} ${user.lastName}"
                     else user.lastName ?: "Unknown"
@@ -59,8 +67,8 @@ object Repository {
         val user2 = User("John", null)
         val user3 = User("Anne", "Doe")
 
-        users.add(user1)
-        users.add(user2)
-        users.add(user3)
+        _users.add(user1)
+        _users.add(user2)
+        _users.add(user3)
     }
 }

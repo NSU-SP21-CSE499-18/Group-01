@@ -72,3 +72,42 @@ object Repository {
         _users.add(user3)
     }
 }
+
+
+/**
+ * (Kotlin allows to  add codes outside the class in the same file as a class)
+ * Extension functions/properties
+ * functions/properties that are added to the class on the go
+ */
+
+// extension function
+fun User.getFormattedName(): String {
+    return if (lastName != null) {
+        if (firstName != null) {
+            "$firstName $lastName"
+        } else {
+            lastName ?: "Unknown"
+        }
+    } else {
+        firstName ?: "Unknown"
+    }
+}
+
+// extension property
+val User.userFormattedName: String
+    get() {
+        return if (lastName != null) {
+            if (firstName != null) {
+                "$firstName $lastName"
+            } else {
+                lastName ?: "Unknown"
+            }
+        } else {
+            firstName ?: "Unknown"
+        }
+    }
+
+// usage:
+val user = User("Jon", "Snow")
+val name = user.getFormattedName()
+val formattedName = user.userFormattedName

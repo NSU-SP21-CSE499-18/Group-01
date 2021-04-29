@@ -14,6 +14,8 @@ import java.util.*
  * x = y ?: 0, same as
  *  if(y!=null) x = y;
  *  else x = 0;
+ *
+ *  use list.map { listItem -> ... }  to generate another list by iterating over the original list
  */
 object Repository {
     private val users = mutableListOf<User>()
@@ -23,6 +25,17 @@ object Repository {
 
     val formattedUserNames: List<String>
         get() {
+
+            return users.map { user ->
+                if(user.lastName!=null){
+                    if(user.firstName!=null) "${user.firstName} ${user.lastName}"
+                    else user.lastName ?: "Unknown"
+                }
+                else user.firstName ?: "Unknown"
+            }
+
+            /* generating formatted names using for loop
+
             val userNames = ArrayList<String>(users.size)
             for ((firstName, lastName) in users) {
                 val name: String = if (lastName != null) {
@@ -37,6 +50,7 @@ object Repository {
                 userNames.add(name)
             }
             return userNames
+            */
         }
 
     // keeping the constructor private to enforce the usage of getInstance

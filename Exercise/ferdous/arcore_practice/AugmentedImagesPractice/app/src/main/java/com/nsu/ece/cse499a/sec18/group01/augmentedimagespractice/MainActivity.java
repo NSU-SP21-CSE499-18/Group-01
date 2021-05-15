@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private boolean covidImageDetected = false;
     private static final String COVID_IMAGE_AR_TAG = "covid-image";
+    private int covidModelTapCountLeftTillInfected = 5;
 
     private AugmentedImageDatabase database;
 
@@ -139,8 +140,12 @@ public class MainActivity extends AppCompatActivity implements
 
                                         TransformableNode modelNode = new TransformableNode(arFragment.getTransformationSystem());
 
+                                        modelNode.setOnTapListener((hitTestResult, motionEvent) -> MainActivity.this.onCovidModelTap(modelNode));
+
+                                        modelNode.select();
+
                                         // set initial size
-                                        modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
+                                        //modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
                                         // set max, min size
                                         modelNode.getScaleController().setMaxScale(0.10f);
                                         modelNode.getScaleController().setMinScale(0.025f);
@@ -148,9 +153,11 @@ public class MainActivity extends AppCompatActivity implements
                                         modelNode.setParent(anchorNode);
                                         modelNode.setRenderable(covidModel);
 
-                                        // Removing shadows
-                                        modelNode.getRenderableInstance().setShadowCaster(true);
-                                        modelNode.getRenderableInstance().setShadowReceiver(true);
+                                        if(modelNode.getRenderableInstance() != null){
+                                            // Removing shadows
+                                            modelNode.getRenderableInstance().setShadowCaster(true);
+                                            modelNode.getRenderableInstance().setShadowReceiver(true);
+                                        }
                                     }
                                 })
                                 .exceptionally(
@@ -163,6 +170,23 @@ public class MainActivity extends AppCompatActivity implements
             }
         } catch (Exception e) {
             Log.d(TAG, "onUpdate: error-> "+e.getMessage());
+        }
+    }
+
+    private void onCovidModelTap(TransformableNode modelNode) {
+
+        // must select model for zoom in/out on pinch
+        if(!modelNode.isSelected()) modelNode.select();
+
+        if(covidModelTapCountLeftTillInfected>0){
+
+            covidModelTapCountLeftTillInfected--;
+
+            if(covidModelTapCountLeftTillInfected==0) Toast.makeText(this, "You are infected...", Toast.LENGTH_LONG).show();
+
+            else if(covidModelTapCountLeftTillInfected%2==1) {
+                Toast.makeText(this, covidModelTapCountLeftTillInfected+ " more taps and you'll get infected.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

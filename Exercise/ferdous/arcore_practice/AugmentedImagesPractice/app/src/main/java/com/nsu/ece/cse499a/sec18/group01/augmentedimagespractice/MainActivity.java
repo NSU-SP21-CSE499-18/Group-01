@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements
                                         modelNode.getScaleController().setMinScale(0.025f);
                                         // rotate model around x-axis (upwards) by 100 degrees
                                         modelNode.setLocalRotation(
-                                                Quaternion.axisAngle(new Vector3(1.0f, 0.0f, 0.0f), -120.0f)
+                                                Quaternion.axisAngle(new Vector3(1.0f, 0.0f, 0.0f), -100.0f)
                                         );
 
                                         modelNode.setParent(anchorNode);

@@ -11,8 +11,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.widget.Toast;
 
 import com.google.ar.core.AugmentedImage;
@@ -23,9 +21,8 @@ import com.google.ar.core.Session;
 import com.google.ar.core.TrackingState;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.FrameTime;
-import com.google.ar.sceneform.HitTestResult;
-import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.Sceneform;
+import com.google.ar.sceneform.math.Quaternion;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
@@ -126,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements
 
                         WeakReference<MainActivity> weakActivity = new WeakReference<>(this);
                         ModelRenderable.builder()
-                                .setSource(this, Uri.parse("corona.glb"))
+                                .setSource(this, Uri.parse("cvir_detailed.glb"))
                                 .setIsFilamentGltf(true)
                                 .build()
                                 .thenAccept(covidModel -> {
@@ -145,10 +142,14 @@ public class MainActivity extends AppCompatActivity implements
                                         modelNode.select();
 
                                         // set initial size
-                                        //modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
+                                        modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
                                         // set max, min size
                                         modelNode.getScaleController().setMaxScale(0.10f);
                                         modelNode.getScaleController().setMinScale(0.025f);
+                                        // rotate model around x-axis (upwards) by 100 degrees
+                                        modelNode.setLocalRotation(
+                                                Quaternion.axisAngle(new Vector3(1.0f, 0.0f, 0.0f), -120.0f)
+                                        );
 
                                         modelNode.setParent(anchorNode);
                                         modelNode.setRenderable(covidModel);

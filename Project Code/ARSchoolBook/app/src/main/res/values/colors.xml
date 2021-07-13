@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="titleColor">#4938A3</color>
+    <color name="textColorGray">#515151</color>
+    <color name="textColorBlack">#000000</color>
+    <color name="buttonGradStart">#4938A3</color>
+    <color name="buttonGradEnd">#907DFF</color>
+
 </resources>

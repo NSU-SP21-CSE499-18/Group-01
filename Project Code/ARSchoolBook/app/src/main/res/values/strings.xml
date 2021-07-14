@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ARSchoolBook</string>
     <!--    Book Index (en)-->
-    <string name="ch_title">Chapter</string>
+    <string name="ch_title">Chapters</string>
     <string name="ch_no_1">Chapter 1</string>
     <string name="ch_no_2">Chapter 2</string>
     <string name="ch_no_3">Chapter 3</string>

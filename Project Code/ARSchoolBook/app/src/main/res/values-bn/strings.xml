@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ARSchoolBook</string>
+    <!--    Book Index (bn)-->
+    <string name="ch_title">অধ্যায় সমূহ</string>
+    <string name="ch_no_1">অধ্যায় ১</string>
+    <string name="ch_no_2">অধ্যায় ২</string>
+    <string name="ch_no_3">অধ্যায় ৩</string>
+    <string name="ch_no_4">অধ্যায় ৪</string>
+    <string name="ch_no_5">অধ্যায় ৫</string>
+    <string name="ch_no_6">অধ্যায় ৬</string>
+    <string name="ch_no_7">অধ্যায় ৭</string>
+    <string name="ch_no_8">অধ্যায় ৮</string>
+    <string name="ch_no_9">অধ্যায় ৯</string>
+    <string name="ch_no_10">অধ্যায় ১০</string>
+    <string name="ch_no_11">অধ্যায় ১১</string>
+    <string name="ch_no_12">অধ্যায় ১২</string>
+    <string name="ch_no_13">অধ্যায় ১৩</string>
+    <string name="ch_no_14">অধ্যায় ১৪</string>
 
+    <string name="ch_name_1">নিম্ন শ্রেণির জীব</string>
+    <string name="ch_name_2">উদ্ভিদ ও প্রাণির কোষীয় সংগঠন</string>
+    <string name="ch_name_3">উদ্ভিদের বাহ্যিক বৈশিষ্ট্য</string>
+    <string name="ch_name_4">শ্বসন </string>
+    <string name="ch_name_5">পরিপাকতন্ত্র এবং রক্ত সংবহনতন্ত্র</string>
+    <string name="ch_name_6">পদার্থের গঠন</string>
+    <string name="ch_name_7">শক্তির ব্যবহার</string>
+    <string name="ch_name_8">শব্দের কথা</string>
+    <string name="ch_name_9">তাপ ও তাপমাত্রা</string>
+    <string name="ch_name_10">বিদ্যুৎ ও চুম্বকের ঘটনা</string>
+    <string name="ch_name_11">পারিপার্শ্বিক পরিবর্তন ও বিভিন্ন ঘটনা</string>
+    <string name="ch_name_12">সৌরজগৎ ও আমাদের পৃথিবী</string>
+    <string name="ch_name_13">প্রাকৃতিক পরিবেশ ও দূষণ</string>
+    <string name="ch_name_14">জলবায়ু পরিবর্তন</string>
+
+    <!--    Book Title (bn)-->
+    <string name="book_title">বিজ্ঞান বই</string>
+    <string name="book_caption">সপ্তম শ্রেণি</string>
+    
 </resources>

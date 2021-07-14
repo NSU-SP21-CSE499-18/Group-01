@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ARSchoolBook</string>
     <!--    Book Index (en)-->
+    <string name="ch_title">Chapter</string>
     <string name="ch_no_1">Chapter 1</string>
     <string name="ch_no_2">Chapter 2</string>
     <string name="ch_no_3">Chapter 3</string>
@@ -30,4 +31,16 @@
     <string name="ch_name_12">The Solar System and Our Earth</string>
     <string name="ch_name_13">Environment and Pollution</string>
     <string name="ch_name_14">Change of Climate</string>
+
+    <!--    Book Title (en)-->
+    <string name="book_title">Science Book </string>
+    <string name="book_caption">Class 7 </string>
+
+    <!--    Button Texts -->
+    <string name="lng_switch_en" translatable="false">En</string>
+    <string name="lng_switch_bn" translatable="false">বাং</string>
+    <string name="prev" translatable="false">Previous</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="view_figures" translatable="false">View Figures</string>
+
 </resources>

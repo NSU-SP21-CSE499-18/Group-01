@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">ARSchoolBook</string>
+    <!--    Book Index (en)-->
+    <string name="ch_no_1">Chapter 1</string>
+    <string name="ch_no_2">Chapter 2</string>
+    <string name="ch_no_3">Chapter 3</string>
+    <string name="ch_no_4">Chapter 4</string>
+    <string name="ch_no_5">Chapter 5</string>
+    <string name="ch_no_6">Chapter 6</string>
+    <string name="ch_no_7">Chapter 7</string>
+    <string name="ch_no_8">Chapter 8</string>
+    <string name="ch_no_9">Chapter 9</string>
+    <string name="ch_no_10">Chapter 10</string>
+    <string name="ch_no_11">Chapter 11</string>
+    <string name="ch_no_12">Chapter 12</string>
+    <string name="ch_no_13">Chapter 13</string>
+    <string name="ch_no_14">Chapter 14</string>
+
+    <string name="ch_name_1">Lower Organisms</string>
+    <string name="ch_name_2">Cellular Organisation of Plants and Animals</string>
+    <string name="ch_name_3">External Morphology of Plants</string>
+    <string name="ch_name_4">Respiration</string>
+    <string name="ch_name_5">Digestive System and Blood Circulation System</string>
+    <string name="ch_name_6">Structure of Matter</string>
+    <string name="ch_name_7">The of Energy</string>
+    <string name="ch_name_8">About Sound</string>
+    <string name="ch_name_9">Heat and Temperature</string>
+    <string name="ch_name_10">Phenomena of ELectricity and Magnet</string>
+    <string name="ch_name_11">Change in Surrounding and Various Incidents</string>
+    <string name="ch_name_12">The Solar System and Our Earth</string>
+    <string name="ch_name_13">Environment and Pollution</string>
+    <string name="ch_name_14">Change of Climate</string>
 </resources>

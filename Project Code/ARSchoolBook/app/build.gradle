@@ -49,6 +49,9 @@ dependencies {
     //Material UI
     implementation 'com.google.android.material:material:1.4.0'
 
+    //Youtube
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
 
 
 

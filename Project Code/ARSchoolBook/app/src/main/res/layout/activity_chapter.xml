@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ch_name_1"
-            android:fontFamily="@font/segoeui"
+            android:fontFamily="@font/seguisb"
             android:textColor="@color/titleColor"
             android:textSize="@dimen/_18sdp"
             android:ellipsize="none"
@@ -115,4 +115,23 @@
         app:backgroundTint="@null"
         android:theme="@style/Theme.MaterialComponents"
         app:iconTint="@color/white" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/search_box"
+        android:drawableStart="@drawable/ic_search"
+        android:inputType="textWebEditText|textNoSuggestions"
+        android:fontFamily="@font/segoeui"
+        android:hint="@string/search_box_hint"
+        android:paddingStart="15dp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:textSize="20sp"/>
+
+
 </LinearLayout>

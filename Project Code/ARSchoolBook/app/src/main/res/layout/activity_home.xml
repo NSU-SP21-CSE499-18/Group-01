@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/_13sdp"
     android:elevation="@dimen/_15sdp"
     android:background="@drawable/custom_layout_background"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,12 +73,13 @@
             android:layout_marginStart="@dimen/_14sdp"
             android:layout_marginEnd="@dimen/_14sdp"
             android:layout_marginTop="@dimen/_18sdp"
-            android:paddingBottom="@dimen/_16sdp">
+            android:paddingBottom="@dimen/_18sdp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_1"
+                android:onClick="onClick"
                 android:layout_weight="2"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
@@ -106,6 +107,7 @@
                 android:orientation="vertical"
                 android:id="@+id/ch_2"
                 android:layout_weight="2"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,6 +134,7 @@
                 android:orientation="vertical"
                 android:id="@+id/ch_3"
                 android:layout_weight="2"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,6 +160,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_4"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -182,6 +186,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_5"
+                android:onClick="onClick"
                 android:layout_weight="2"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
@@ -208,6 +213,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_6"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -233,6 +239,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_7"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -258,6 +265,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_8"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,6 +291,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_9"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -308,6 +317,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_10"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -333,6 +343,7 @@
                 android:layout_height="0dp"
                 android:orientation="vertical"
                 android:id="@+id/ch_11"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,6 +369,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_12"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -383,6 +395,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_13"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -405,9 +418,10 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/ch_14"
+                android:onClick="onClick"
                 android:layout_marginBottom="@dimen/_5sdp">
                 <TextView
                     android:layout_width="wrap_content"

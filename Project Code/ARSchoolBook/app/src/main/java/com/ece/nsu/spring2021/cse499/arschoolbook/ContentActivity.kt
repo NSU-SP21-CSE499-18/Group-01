@@ -6,20 +6,25 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerFullScreenListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 /**
  * Activity Class for a single chapter on book
  */
-class ContentActivity : AppCompatActivity() {
+class ContentActivity : AppCompatActivity(), YouTubePlayerFullScreenListener {
 
     // ui
-    lateinit var backButton : ImageButton
-    lateinit var chapterNoTv: TextView
-    lateinit var chapterNameTv: TextView
+    private lateinit var backButton : ImageButton
+    private lateinit var chapterNoTv: TextView
+    private lateinit var chapterNameTv: TextView
 
     // models
-    var chapterNo: String = ""
-    var chapterName: String = ""
+    private var chapterNo: String = ""
+    private var chapterName: String = ""
+
+    // youtube api
+    private lateinit var youtubePlayerView: YouTubePlayerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +48,11 @@ class ContentActivity : AppCompatActivity() {
         // set data to UI
         chapterNoTv.text = chapterNo
         chapterNameTv.text = chapterName
+
+        // youtube api initialization
+        youtubePlayerView = findViewById(R.id.youtube_player_view)
+        lifecycle.addObserver(youtubePlayerView)
+        youtubePlayerView.addFullScreenListener(this)
     }
 
     /**
@@ -50,5 +60,19 @@ class ContentActivity : AppCompatActivity() {
      */
     fun backClick(view: View) {
         finish()
+    }
+
+    /**
+     * listener for when youtube video enters full screen mode
+     */
+    override fun onYouTubePlayerEnterFullScreen() {
+        // TODO: implement
+    }
+
+    /**
+     * listener for when youtube video exits full screen mode
+     */
+    override fun onYouTubePlayerExitFullScreen() {
+        // TODO: implement
     }
 }

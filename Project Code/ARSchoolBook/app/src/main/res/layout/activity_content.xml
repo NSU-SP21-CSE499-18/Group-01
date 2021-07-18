@@ -12,11 +12,12 @@
         android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_icon"
-        android:background="@color/transparent"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_7sdp"/>
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@color/transparent"
+        android:onClick="backClick"
+        android:src="@drawable/ic_back_icon"/>
 
     <LinearLayout
         android:layout_width="match_parent"

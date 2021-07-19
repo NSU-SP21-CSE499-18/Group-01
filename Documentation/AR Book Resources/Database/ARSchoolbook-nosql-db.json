@@ -1,0 +1,496 @@
+{
+  
+  "class7book": {
+    
+    "chapter1": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=1XZrh83Qq9I",
+          "videoId": "1XZrh83Qq9I"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=GM2paTI5D9A",
+          "videoId": "GM2paTI5D9A"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=4NKpbTRq36k",
+          "videoId": "4NKpbTRq36k"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=mu-ZgHycV9E",
+          "videoId": "mu-ZgHycV9E"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=12m8Jm-vJbk",
+          "videoId": "12m8Jm-vJbk"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=7eumA2mxzlc",
+          "videoId": "7eumA2mxzlc"
+        }
+      }
+    },
+    
+    "chapter2": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=oJJH6cM9koM",
+          "videoId": "oJJH6cM9koM"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ColrdO1OZqY",
+          "videoId": "ColrdO1OZqY"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=mVNW1-km8Uo",
+          "videoId": "mVNW1-km8Uo"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=5spUPRa_rFQ",
+          "videoId": "5spUPRa_rFQ"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=acN-fXLl_10",
+          "videoId": "acN-fXLl_10"
+        }
+      }
+    },
+    
+    "chapter3": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=JB2pHpTX4Q0",
+          "videoId": "JB2pHpTX4Q0"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=OyOgSz-8Zvs",
+          "videoId": "OyOgSz-8Zvs"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=PHUxgHKEZjA",
+          "videoId": "PHUxgHKEZjA"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=fWJ4gIa4QGY",
+          "videoId": "fWJ4gIa4QGY"
+        }
+      }
+    },
+    
+    "chapter4": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=1q_4dj9wYUc",
+          "videoId": "1q_4dj9wYUc"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=qVR0DgxHChg",
+          "videoId": "qVR0DgxHChg"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=xnP5mNlYVEg",
+          "videoId": "xnP5mNlYVEg"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=vBI00tVKW8A",
+          "videoId": "vBI00tVKW8A"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=w7ysPIwXB6c",
+          "videoId": "w7ysPIwXB6c"
+        }
+      }
+    },
+    
+    "chapter5": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=9-HkvncPZx8",
+          "videoId": "9-HkvncPZx8"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=_HjMq_ARun0",
+          "videoId": "_HjMq_ARun0"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=TR_AgMZCno8",
+          "videoId": "TR_AgMZCno8"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=RlE4uIUAbqU",
+          "videoId": "RlE4uIUAbqU"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=RjU-xFT3jhI",
+          "videoId": "RjU-xFT3jhI"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=SJvF2Fa0k6c",
+          "videoId": "SJvF2Fa0k6c"
+        },
+        "vid-2-6": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=HiBO529L250",
+          "videoId": "HiBO529L250"
+        },
+        "vid-2-7": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=H9l84ccwM_o",
+          "videoId": "H9l84ccwM_o"
+        }
+      }
+    },
+    
+    "chapter6": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=SbofXuZYGSg",
+          "videoId": "SbofXuZYGSg"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=UoHGUsNSOVg",
+          "videoId": "UoHGUsNSOVg"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=90UNRq0p254",
+          "videoId": "90UNRq0p254"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=3c-cW9jxlDE",
+          "videoId": "3c-cW9jxlDE"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=bl-bTswdkvU",
+          "videoId": "bl-bTswdkvU"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=4t_JFiGOK9k",
+          "videoId": "4t_JFiGOK9k"
+        }
+      }
+    },
+    
+    "chapter7": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=lqNE0RC-9tU",
+          "videoId": "lqNE0RC-9tU"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=RVdYVJmFzW8",
+          "videoId": "RVdYVJmFzW8"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=sl_85K8MWsE",
+          "videoId": "sl_85K8MWsE"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=zsIEDIaAW7o",
+          "videoId": "zsIEDIaAW7o"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=k04e63PXws4",
+          "videoId": "k04e63PXws4"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=7olBJWjyCoU",
+          "videoId": "7olBJWjyCoU"
+        },
+        "vid-2-6": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=pnveSCOjyoE",
+          "videoId": "pnveSCOjyoE"
+        },
+        "vid-2-7": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=tBhj2T5ouEE",
+          "videoId": "tBhj2T5ouEE"
+        }
+      }
+    },
+    
+    "chapter8": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=SqFNjyg64nQ",
+          "videoId": "SqFNjyg64nQ"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=_V8vo8P2KOQ",
+          "videoId": "_V8vo8P2KOQ"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=P0PIyEAHFRU",
+          "videoId": "P0PIyEAHFRU"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=lPdx9UEiIU4",
+          "videoId": "lPdx9UEiIU4"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=nOUlKrPz99A",
+          "videoId": "nOUlKrPz99A"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=qQX4cGOGHVg",
+          "videoId": "qQX4cGOGHVg"
+        }
+      }
+    },
+    
+    "chapter9": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=EJXHtv-ltG0",
+          "videoId": "EJXHtv-ltG0"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=i0xQFCdl5KM",
+          "videoId": "i0xQFCdl5KM"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=DDk3hzwUzwQ",
+          "videoId": "DDk3hzwUzwQ"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ZajHnlNMujg",
+          "videoId": "ZajHnlNMujg"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ts8-_qNBZsM",
+          "videoId": "ts8-_qNBZsM"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=wi147ientac",
+          "videoId": "wi147ientac"
+        }
+      }
+    },
+    
+    "chapter10": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=SXcEBtuqWPI",
+          "videoId": "SXcEBtuqWPI"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ZI0oz11HF-E",
+          "videoId": "ZI0oz11HF-E"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=OtIgmZmaqq4",
+          "videoId": "OtIgmZmaqq4"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=jzqbF0u_c2o",
+          "videoId": "jzqbF0u_c2o"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=5wWaYhPXOIE",
+          "videoId": "5wWaYhPXOIE"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ytUJ_P_366w",
+          "videoId": "ytUJ_P_366w"
+        },
+        "vid-2-6": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=vIUXqU6heA0",
+          "videoId": "vIUXqU6heA0"
+        }
+      }
+    },
+    
+    "chapter11": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=d_zZEn5bqmc",
+          "videoId": "d_zZEn5bqmc"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watchv=cj9nZS5zlks",
+          "videoId": "cj9nZS5zlks"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=F-KgYzTCPSI",
+          "videoId": "F-KgYzTCPSI"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ER2asQtw4A8",
+          "videoId": "ER2asQtw4A8"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=YMdyuWbMw5s",
+          "videoId": "YMdyuWbMw5s"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=HY9io2yG49s",
+          "videoId": "HY9io2yG49s"
+        },
+        "vid-2-6": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=KqdjSqCbxec",
+          "videoId": "KqdjSqCbxec"
+        },
+        "vid-2-7": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=vhwwpTCR_EM",
+          "videoId": "vhwwpTCR_EM"
+        }
+      }
+    },
+    
+    "chapter12": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=rU2OPbDkDtQ",
+          "videoId": "rU2OPbDkDtQ"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=oUWC2gzp_Wc",
+          "videoId": "oUWC2gzp_Wc"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=s8VN8ngQVDU",
+          "videoId": "s8VN8ngQVDU"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=uIZUScNB9Fg",
+          "videoId": "uIZUScNB9Fg"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=YunG5ZTpZMM",
+          "videoId": "YunG5ZTpZMM"
+        },
+        "vid-2-5": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=PHSFvL-vPsI",
+          "videoId": "PHSFvL-vPsI"
+        },
+        "vid-2-6": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=haePRv9JOI",
+          "videoId": "haePRv9JOI"
+        }
+      }
+    },
+    
+    "chapter13": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=g27KoR_5OL8",
+          "videoId": "g27KoR_5OL8"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=hVAp5kUpwlc",
+          "videoId": "hVAp5kUpwlc"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=ryIMnCY2Xck",
+          "videoId": "ryIMnCY2Xck"
+        }
+      }
+    },
+    
+    "chapter14": {
+      "youtubeVideos":{
+        "vid-1": {
+          "source": "10 Minute School",
+          "link": "https://www.youtube.com/watch?v=90dg7F354T8",
+          "videoId": "90dg7F354T8"
+        },
+        "vid-2-1": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=UfDZgbVOPJg",
+          "videoId": "UfDZgbVOPJg"
+        },
+        "vid-2-2": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=yMC4HC_WbDc",
+          "videoId": "yMC4HC_WbDc"
+        },
+        "vid-2-3": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=qu0SVQcimc0",
+          "videoId": "qu0SVQcimc0"
+        },
+        "vid-2-4": {
+          "source": "Technic Easy Education",
+          "link": "https://www.youtube.com/watch?v=BBLwRJlVsYc",
+          "videoId": "BBLwRJlVsYc"
+        }
+      }
+    }
+
+  }
+}

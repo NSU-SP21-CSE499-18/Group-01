@@ -1,10 +1,11 @@
-package com.ece.nsu.spring2021.cse499.arschoolbook
+package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerTracker

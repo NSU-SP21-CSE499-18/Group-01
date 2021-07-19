@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/_13sdp"
     android:elevation="@dimen/_15sdp"
     android:background="@drawable/custom_layout_background"
-    tools:context=".ContentActivity">
+    tools:context=".activities.ContentActivity">
 
     <ImageButton
         android:id="@+id/backBtn"

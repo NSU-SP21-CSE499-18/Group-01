@@ -2,12 +2,16 @@ package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -16,6 +20,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
  * Activity Class for a single chapter on book
  */
 class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
+
+    private val TAG: String = "CA-debug"
 
     // ui
     private lateinit var backButton : ImageButton
@@ -33,6 +39,9 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     // youtube api
     private lateinit var mYouTubePlayerView: YouTubePlayerView
     private var mYouTubePlayer: YouTubePlayer? = null
+
+    // firebase database variables
+    private lateinit var firebaseDb: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,12 +133,42 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
      * @param chapterNo id of the chapter
      */
     private fun fetchYoutubeVideosFromDatabase(chapterNo: String) {
-        // TODO: fetch from firebase realtime db
 
-        // fetching dummy video for now
-        mYoutubeVideos = YouTubeVideo.generateDummyYouTubeVideos()
-        currentVideoPosition = 0
-        playVideoAtPosition(currentVideoPosition)
+        firebaseDb = FirebaseDatabase.getInstance().reference
+
+        var dbPath: String = NosqlDbPathUtils.CLASS_7_BOOK_NODE + "/"
+        when(chapterNo){
+            getString(R.string.ch_no_1) -> dbPath += NosqlDbPathUtils.CHAPTER_1_NODE + "/"
+            getString(R.string.ch_no_2) -> dbPath += NosqlDbPathUtils.CHAPTER_2_NODE + "/"
+            getString(R.string.ch_no_3) -> dbPath += NosqlDbPathUtils.CHAPTER_3_NODE + "/"
+            getString(R.string.ch_no_4) -> dbPath += NosqlDbPathUtils.CHAPTER_4_NODE + "/"
+            getString(R.string.ch_no_5) -> dbPath += NosqlDbPathUtils.CHAPTER_5_NODE + "/"
+            getString(R.string.ch_no_6) -> dbPath += NosqlDbPathUtils.CHAPTER_6_NODE + "/"
+            getString(R.string.ch_no_7) -> dbPath += NosqlDbPathUtils.CHAPTER_7_NODE + "/"
+            getString(R.string.ch_no_8) -> dbPath += NosqlDbPathUtils.CHAPTER_8_NODE + "/"
+            getString(R.string.ch_no_9) -> dbPath += NosqlDbPathUtils.CHAPTER_9_NODE + "/"
+            getString(R.string.ch_no_10) -> dbPath += NosqlDbPathUtils.CHAPTER_10_NODE + "/"
+            getString(R.string.ch_no_11) -> dbPath += NosqlDbPathUtils.CHAPTER_11_NODE + "/"
+            getString(R.string.ch_no_12) -> dbPath += NosqlDbPathUtils.CHAPTER_12_NODE + "/"
+            getString(R.string.ch_no_13) -> dbPath += NosqlDbPathUtils.CHAPTER_13_NODE + "/"
+            getString(R.string.ch_no_14) -> dbPath += NosqlDbPathUtils.CHAPTER_14_NODE + "/"
+        }
+        dbPath += NosqlDbPathUtils.YOUTUBE_VIDEOS_NODE + "/"
+
+        firebaseDb.child(dbPath).get().addOnSuccessListener {
+            for(snap in it.children) {
+                val youtubeVideo = snap.getValue(YouTubeVideo::class.java)
+                if (youtubeVideo != null) {
+                    mYoutubeVideos.add(youtubeVideo)
+                    if (mYoutubeVideos.size == 1) {
+                        currentVideoPosition = 0
+                        playVideoAtPosition(currentVideoPosition)
+                    }
+                }
+            }
+        }.addOnFailureListener{
+            Log.d(TAG, "fetchYoutubeVideosFromDatabase: error = " + it.message)
+        }
     }
 
     /**

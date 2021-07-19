@@ -3,6 +3,7 @@ package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
@@ -20,6 +21,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     private lateinit var backButton : ImageButton
     private lateinit var chapterNoTv: TextView
     private lateinit var chapterNameTv: TextView
+    private lateinit var nextButton: Button
+    private lateinit var previousButton: Button
 
     // models
     private var chapterNo: String = ""
@@ -49,6 +52,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         backButton = findViewById(R.id.backBtn)
         chapterNoTv = findViewById(R.id.selected_ch_no)
         chapterNameTv = findViewById(R.id.selected_ch_name)
+        nextButton = findViewById(R.id.nextBtn)
+        previousButton = findViewById(R.id.prevBtn)
 
         // get data for the UI
         val bundle: Bundle? = intent.extras
@@ -72,6 +77,26 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         finish()
     }
 
+    fun nextButtonClick(view: View) {
+
+        if(mYoutubeVideos.size==0) return
+
+        currentVideoPosition++
+        currentVideoPosition %= mYoutubeVideos.size
+
+        playVideoAtPosition(currentVideoPosition)
+    }
+
+    fun previousButtonClick(view: View) {
+
+        if(mYoutubeVideos.size==0) return
+
+        currentVideoPosition--
+        if (currentVideoPosition<0) currentVideoPosition += mYoutubeVideos.size
+
+        playVideoAtPosition(currentVideoPosition)
+    }
+
     /**
      * listener for when youtube player is ready to play the video
      */
@@ -79,7 +104,19 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
         mYouTubePlayer = youTubePlayer
 
+        enableVideoPlayerUi()
+
         fetchYoutubeVideosFromDatabase(chapterNo)
+    }
+
+    /**
+     * enable all ui components relevant to video playing
+     * such as- next, previous button
+     */
+    private fun enableVideoPlayerUi() {
+
+        nextButton.isEnabled = true
+        previousButton.isEnabled = true
     }
 
     /**

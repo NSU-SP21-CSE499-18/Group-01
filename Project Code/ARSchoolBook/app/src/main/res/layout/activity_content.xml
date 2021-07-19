@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_margin="@dimen/_13sdp"
     android:elevation="@dimen/_15sdp"
-    android:background="@drawable/custom_layout_background">
+    android:background="@drawable/custom_layout_background"
+    tools:context=".ContentActivity">
 
     <ImageButton
         android:id="@+id/backBtn"
@@ -17,7 +19,8 @@
         android:layout_marginBottom="@dimen/_7sdp"
         android:background="@color/transparent"
         android:onClick="backClick"
-        android:src="@drawable/ic_back_icon"/>
+        android:src="@drawable/ic_back_icon"
+        android:padding="@dimen/_8sdp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:videoId="pr7YKrav2S0"
-        app:autoPlay="true"
+        app:autoPlay="false"
         app:showFullScreenButton="false"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"/>

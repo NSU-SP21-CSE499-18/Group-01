@@ -3,16 +3,17 @@ package com.ece.nsu.spring2021.cse499.arschoolbook
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerFullScreenListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerTracker
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 /**
  * Activity Class for a single chapter on book
  */
-class ContentActivity : AppCompatActivity(), YouTubePlayerFullScreenListener {
+class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     // ui
     private lateinit var backButton : ImageButton
@@ -22,6 +23,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerFullScreenListener {
     // models
     private var chapterNo: String = ""
     private var chapterName: String = ""
+    private var currentlyPlayingVideId = ""
 
     // youtube api
     private lateinit var youtubePlayerView: YouTubePlayerView
@@ -52,7 +54,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerFullScreenListener {
         // youtube api initialization
         youtubePlayerView = findViewById(R.id.youtube_player_view)
         lifecycle.addObserver(youtubePlayerView)
-        youtubePlayerView.addFullScreenListener(this)
+        youtubePlayerView.getYouTubePlayerWhenReady(this)
     }
 
     /**
@@ -63,16 +65,11 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerFullScreenListener {
     }
 
     /**
-     * listener for when youtube video enters full screen mode
+     * listener for when youtube player is ready to play the video
      */
-    override fun onYouTubePlayerEnterFullScreen() {
-        // TODO: implement
-    }
-
-    /**
-     * listener for when youtube video exits full screen mode
-     */
-    override fun onYouTubePlayerExitFullScreen() {
-        // TODO: implement
+    override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {
+        val youtubePlayerTracker = YouTubePlayerTracker()
+        youTubePlayer.addListener(youtubePlayerTracker)
+        currentlyPlayingVideId = youtubePlayerTracker.videoId.toString()
     }
 }

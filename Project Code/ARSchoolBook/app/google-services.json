@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "987725456306",
+    "firebase_url": "https://arschoolbook-42489-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "arschoolbook-42489",
+    "storage_bucket": "arschoolbook-42489.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987725456306:android:91d8550622d3503450faab",
+        "android_client_info": {
+          "package_name": "com.ece.nsu.spring2021.cse499.arschoolbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987725456306-86hd0cjpl603r1i6herj0agt9s2eocvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAarJZIuUBFGNqSRF7EqnsBttRKkZtqovA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987725456306-86hd0cjpl603r1i6herj0agt9s2eocvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

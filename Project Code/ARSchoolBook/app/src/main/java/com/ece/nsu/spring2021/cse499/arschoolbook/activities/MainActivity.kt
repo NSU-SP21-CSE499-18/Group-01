@@ -1,8 +1,9 @@
-package com.ece.nsu.spring2021.cse499.arschoolbook
+package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ece.nsu.spring2021.cse499.arschoolbook.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

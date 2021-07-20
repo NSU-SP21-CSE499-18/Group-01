@@ -1,4 +1,4 @@
-package com.ece.nsu.spring2021.cse499.arschoolbook
+package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import belka.us.androidtoggleswitch.widgets.ToggleSwitch
+import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import java.util.*
 
 

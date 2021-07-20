@@ -3,20 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_margin="@dimen/_13sdp"
     android:elevation="@dimen/_15sdp"
-    android:background="@drawable/custom_layout_background">
+    android:background="@drawable/custom_layout_background"
+    tools:context=".activities.ContentActivity">
 
     <ImageButton
         android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_icon"
-        android:background="@color/transparent"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_7sdp"/>
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@color/transparent"
+        android:onClick="backClick"
+        android:src="@drawable/ic_back_icon"
+        android:padding="@dimen/_8sdp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,8 +54,7 @@
         android:id="@+id/youtube_player_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:videoId="pr7YKrav2S0"
-        app:autoPlay="true"
+        app:autoPlay="false"
         app:showFullScreenButton="false"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"/>
@@ -66,42 +69,46 @@
         android:paddingBottom="3dp">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/prevBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/prevBtn"
-            android:fontFamily="@font/seguisb"
-            android:textColor="@color/white"
-            android:text="@string/prev"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_7sdp"
+            android:layout_weight="1"
             android:background="@drawable/custom_button"
-            app:icon ="@drawable/ic_previous_icon"
+            android:enabled="false"
+            android:fontFamily="@font/seguisb"
+            android:onClick="previousButtonClick"
+            android:text="@string/prev"
+            android:textColor="@color/white"
+            android:theme="@style/Theme.MaterialComponents"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_previous_icon"
             app:iconGravity="textStart"
             app:iconPadding="@dimen/_5sdp"
-            app:backgroundTint="@null"
-            android:theme="@style/Theme.MaterialComponents"
-            app:iconTint="@color/white"
-            android:layout_weight="1"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_5sdp"/>
+            app:iconTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/nextBtn"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_7sdp"
             android:layout_weight="1"
-            android:fontFamily="@font/seguisb"
-            android:textColor="@color/white"
-            android:text="@string/next"
             android:background="@drawable/custom_button"
-            app:icon ="@drawable/ic_next_icon"
+            android:enabled="false"
+            android:fontFamily="@font/seguisb"
+            android:onClick="nextButtonClick"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:theme="@style/Theme.MaterialComponents"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_next_icon"
             app:iconGravity="textStart"
             app:iconPadding="@dimen/_5sdp"
-            app:backgroundTint="@null"
-            android:theme="@style/Theme.MaterialComponents"
-            app:iconTint="@color/white"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:layout_marginStart="@dimen/_5sdp" />
+            app:iconTint="@color/white" />
     </LinearLayout>
 
 

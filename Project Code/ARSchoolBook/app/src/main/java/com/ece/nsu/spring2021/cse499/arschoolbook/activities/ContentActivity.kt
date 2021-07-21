@@ -1,12 +1,12 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+
 
 /**
  * Activity Class for a single chapter on book
@@ -84,6 +85,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
      */
     fun backClick(view: View) {
         finish()
+        slideInLeftOutRight()
     }
 
     fun nextButtonClick(view: View) {
@@ -181,5 +183,9 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
         mYouTubePlayer!!.loadVideo(mYoutubeVideos.get(videoPosition).videoId!!, 0F)
         mYouTubePlayer!!.pause()
+    }
+
+    fun slideInLeftOutRight() {
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }

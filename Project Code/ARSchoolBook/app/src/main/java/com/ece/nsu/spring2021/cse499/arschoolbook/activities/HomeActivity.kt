@@ -24,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
 
         if(language!=null)
         {
-            if(language.equals("bn"))
+            if(language == "bn")
             {
                 toggleSwitch.checkedTogglePosition = 1
             }
@@ -66,6 +66,10 @@ class HomeActivity : AppCompatActivity() {
         overridePendingTransition(0, 0)
     }
 
+    fun slideInRightOutLeft() {
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+    }
+
     fun onClick(v:View)
     {
         when(v.id){
@@ -75,6 +79,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_1))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_1))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_2 ->
             {
@@ -82,6 +87,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_2))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_2))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_3 ->
             {
@@ -89,6 +95,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_3))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_3))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_4 ->
             {
@@ -96,6 +103,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_4))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_4))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_5 ->
             {
@@ -103,6 +111,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_5))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_5))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_6 ->
             {
@@ -110,6 +119,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_6))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_6))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_7 ->
             {
@@ -117,6 +127,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_7))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_7))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_8 ->
             {
@@ -124,6 +135,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_8))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_8))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_9 ->
             {
@@ -131,6 +143,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_9))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_9))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_10 ->
             {
@@ -138,6 +151,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_10))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_10))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_11 ->
             {
@@ -145,6 +159,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_11))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_11))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_12 ->
             {
@@ -152,6 +167,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_12))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_12))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_13 ->
             {
@@ -159,6 +175,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_13))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_13))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
             R.id.ch_14 ->
             {
@@ -166,9 +183,8 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("Chapter-Name",getString(R.string.ch_name_14))
                 intent.putExtra("Chapter-No",getString(R.string.ch_no_14))
                 startActivity(intent)
+                slideInRightOutLeft()
             }
         }
     }
 }
-
-

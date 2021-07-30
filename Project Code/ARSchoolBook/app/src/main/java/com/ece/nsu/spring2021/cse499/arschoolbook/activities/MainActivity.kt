@@ -1,8 +1,8 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 
 class MainActivity : AppCompatActivity() {

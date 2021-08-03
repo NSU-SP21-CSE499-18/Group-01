@@ -63,7 +63,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
 
     // sceneform
-    implementation("com.gorisse.thomas.sceneform:sceneform:1.19.5")
+    implementation("com.gorisse.thomas.sceneform:sceneform:1.18.10")
 
     // ar-core
     implementation 'com.google.ar:core:1.25.0'

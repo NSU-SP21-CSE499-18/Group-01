@@ -21,6 +21,7 @@ import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.Sceneform;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.BaseArFragment;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ARImgDbUtil;
 
 import java.io.InputStream;
 import java.util.Collection;
@@ -103,7 +104,8 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
 
         Frame frame = this.mArFragment.getArSceneView().getArFrame();
         try {
-            // This is collection of all images from our AugmentedImageDatabase that are currently detected by ARCore in this session
+            // This is collection of all images from our AugmentedImageDatabase
+            // that are currently detected by ARCore in this session
             Collection<AugmentedImage> augmentedImageCollection = frame.getUpdatedTrackables(AugmentedImage.class);
 
             for (AugmentedImage image : augmentedImageCollection) {
@@ -116,11 +118,53 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                     if(mArImageDetected) break;
 
                     mArImageDetected = true;
+
+                    // TODO: show detected image-wise 3D model
                     switch (image.getIndex()){
+
+                        case ARImgDbUtil.SOLAR_SYSTEM_IMG_ID:
+                            Log.d(TAG, "onUpdate: Solar System figure detected");
+                            break;
+
+                        case ARImgDbUtil.VIRUS_IMG_ID:
+                            Log.d(TAG, "onUpdate: Virus figure detected");
+                            break;
+
+                        case ARImgDbUtil.AMOEBA_IMG_ID:
+                            Log.d(TAG, "onUpdate: Amoeba figure detected");
+                            break;
+
+                        case ARImgDbUtil.ENTAMOEBA_IMG_ID:
+                            Log.d(TAG, "onUpdate: Entamoeba figure detected");
+                            break;
+
+                        case ARImgDbUtil.PLANT_CELL_IMG_ID:
+                            Log.d(TAG, "onUpdate: Plant Cell figure detected");
+                            break;
+
+                        case ARImgDbUtil.ANIMAL_CELL_IMG_ID:
+                            Log.d(TAG, "onUpdate: Animal Cell figure detected");
+                            break;
+
+                        case ARImgDbUtil.NUCLEUS_IMG_ID:
+                            Log.d(TAG, "onUpdate: Nucleus figure detected");
+                            break;
+
+                        case ARImgDbUtil.NEURON_IMG_ID:
+                            Log.d(TAG, "onUpdate: Neuron figure detected");
+                            break;
+
+                        case ARImgDbUtil.LUNG_IMG_ID:
+                            Log.d(TAG, "onUpdate: Lung figure detected");
+                            break;
+
+                        case ARImgDbUtil.DIGESTIVE_SYSTEM_IMG_ID:
+                            Log.d(TAG, "onUpdate: Digestive System figure detected");
+                            break;
 
                         default:
                             Log.d(TAG,
-                                    "onUpdate: image index = "+image.getIndex()+" image name = "+image.getName()
+                                    "onUpdate: UNKNOWN IMAGE- image index = "+image.getIndex()+" image name = "+image.getName()
                             );
                     }
                 }

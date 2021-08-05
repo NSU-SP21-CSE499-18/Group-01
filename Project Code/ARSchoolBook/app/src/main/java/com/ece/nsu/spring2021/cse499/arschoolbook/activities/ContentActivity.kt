@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -30,6 +32,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     private lateinit var chapterNameTv: TextView
     private lateinit var nextButton: Button
     private lateinit var previousButton: Button
+    private lateinit var searchET: TextInputEditText
 
     // models
     private var chapterNo: String = ""
@@ -64,6 +67,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         chapterNameTv = findViewById(R.id.selected_ch_name)
         nextButton = findViewById(R.id.nextBtn)
         previousButton = findViewById(R.id.prevBtn)
+        searchET = findViewById(R.id.searchBox)
 
         // get data for the UI
         val bundle: Bundle? = intent.extras

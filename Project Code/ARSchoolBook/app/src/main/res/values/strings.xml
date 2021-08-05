@@ -42,6 +42,6 @@
     <string name="prev" translatable="false">Previous</string>
     <string name="next" translatable="false">Next</string>
     <string name="view_figures" translatable="false">View Figures</string>
-    <string name="search_box_hint" translatable="false">Search something....</string>
+    <string name="search_box_hint" translatable="false">Search keywords...</string>
 
 </resources>

@@ -131,6 +131,7 @@
         app:iconTint="@color/white" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_15sdp"
@@ -145,7 +146,9 @@
         android:paddingTop="@dimen/_10sdp"
         android:paddingEnd="10dp"
         android:paddingBottom="@dimen/_10sdp"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:imeOptions="actionSearch"
+        />
 
 
 </LinearLayout>

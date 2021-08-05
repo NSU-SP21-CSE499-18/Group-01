@@ -1,12 +1,16 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
@@ -82,6 +86,17 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         mYouTubePlayerView = findViewById(R.id.youtube_player_view)
         lifecycle.addObserver(mYouTubePlayerView)
         mYouTubePlayerView.getYouTubePlayerWhenReady(this)
+
+
+        //Handling Text Input Edit Text (search box)
+        searchET.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                var keyword = searchET.text
+                performSearch(keyword)
+                return@OnEditorActionListener true
+            }
+            false
+        })
     }
 
     /**
@@ -191,5 +206,12 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     fun slideInLeftOutRight() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
+    fun performSearch(keyword: Editable?)
+    {
+        val url = "https://www.google.com/search?q=$keyword"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 }

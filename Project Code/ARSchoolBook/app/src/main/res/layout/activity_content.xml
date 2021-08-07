@@ -199,6 +199,41 @@
         </LinearLayout>
     </ScrollView>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewFigBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/seguisb"
+        android:onClick="viewFiguresClick"
+        android:padding="@dimen/_6sdp"
+        android:text="@string/view_figures"
+        android:textColor="@color/white"
+        android:theme="@style/Theme.MaterialComponents"
+        app:backgroundTint="@null"
+        app:icon="@drawable/ic_ar_icon"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_5sdp"
+        app:iconTint="@color/white" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/search_box"
+        android:drawableStart="@drawable/ic_search"
+        android:inputType="textWebEditText|textNoSuggestions"
+        android:fontFamily="@font/segoeui"
+        android:hint="@string/search_box_hint"
+        android:paddingStart="15dp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:textSize="20sp"/>
 
 
 </LinearLayout>

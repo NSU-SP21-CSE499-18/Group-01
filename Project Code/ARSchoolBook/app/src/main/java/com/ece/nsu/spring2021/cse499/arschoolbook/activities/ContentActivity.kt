@@ -1,5 +1,6 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
+import android.content.Intent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -177,6 +178,13 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         if (currentVideoPosition<0) currentVideoPosition += mYoutubeVideos.size
 
         playVideoAtPosition(currentVideoPosition)
+    }
+
+    /**
+     * view figures onClick listener
+     */
+    fun viewFiguresClick(view: View) {
+        startActivity(Intent(this, AugmentedImagesActivity::class.java))
     }
 
     /**

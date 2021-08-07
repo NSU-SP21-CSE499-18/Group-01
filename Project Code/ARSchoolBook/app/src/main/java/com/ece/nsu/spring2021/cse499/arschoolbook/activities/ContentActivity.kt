@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -37,6 +38,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     private lateinit var nextButton: Button
     private lateinit var previousButton: Button
     private lateinit var searchET: TextInputEditText
+    private lateinit var micButton : ImageButton
+    private lateinit var clearButton : ImageButton
 
     // models
     private var chapterNo: String = ""
@@ -72,6 +75,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         nextButton = findViewById(R.id.nextBtn)
         previousButton = findViewById(R.id.prevBtn)
         searchET = findViewById(R.id.searchBox)
+        micButton = findViewById(R.id.micBtn)
+        clearButton = findViewById(R.id.clearBtn)
 
         // get data for the UI
         val bundle: Bundle? = intent.extras
@@ -97,15 +102,39 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
             }
             false
         })
+
+        //Handling keyword (input) text watcher
+        searchET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if(s.length>0) {
+                        micButton.visibility = View.GONE
+                        clearButton.visibility = View.VISIBLE
+                    } else {
+                        micButton.visibility = View.VISIBLE
+                        clearButton.visibility = View.GONE
+                    }
+                }
+            }
+        })
     }
 
-    /**
-     * back button press listener
-     */
+
     fun backClick(view: View) {
         finish()
         slideInLeftOutRight()
     }
+
+    fun clearSearchBox(view: View)
+    {
+        searchET.setText("")
+        clearButton.visibility = View.GONE
+    }
+
+
 
     fun nextButtonClick(view: View) {
 
@@ -213,5 +242,6 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         val url = "https://www.google.com/search?q=$keyword"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
+        searchET.setText("")
     }
 }

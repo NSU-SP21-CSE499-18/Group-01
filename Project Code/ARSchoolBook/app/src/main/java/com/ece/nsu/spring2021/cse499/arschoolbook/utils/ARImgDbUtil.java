@@ -30,4 +30,17 @@ public abstract class ARImgDbUtil {
             LUNG_IMG_NAME = "4_3.jpg",
             DIGESTIVE_SYSTEM_IMG_NAME = "5_1.jpg";
 
+    // name of the models saved inside assets folder
+    public static final String
+            SOLAR_SYSTEM_MODEL_FILE = "solarSystem.glb",
+            VIRUS_MODEL_FILE = "virus.glb",
+            //AMOEBA_MODEL_FILE = "1_6.jpg",
+            //ENTAMOEBA_MODEL_FILE = "1_7.jpg",
+            PLANT_CELL_MODEL_FILE = "plantCell.glb",
+            ANIMAL_CELL_MODEL_FILE = "animalCell.glb",
+            //NUCLEUS_MODEL_FILE = "2_3.jpg",
+            NEURON_MODEL_FILE = "neuron.glb",
+            LUNG_MODEL_FILE = "lung.glb",
+            DIGESTIVE_MODEL_FILE = "digestiveSystem.glb";
+
 }

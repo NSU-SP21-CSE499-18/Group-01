@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -101,14 +102,36 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
             }
             false
         })
+
+        //Handling keyword (input) text watcher
+        searchET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if(s.length>0) {
+                        micButton.visibility = View.GONE
+                        clearButton.visibility = View.VISIBLE
+                    } else {
+                        micButton.visibility = View.VISIBLE
+                        clearButton.visibility = View.GONE
+                    }
+                }
+            }
+        })
     }
 
-    /**
-     * back button press listener
-     */
+
     fun backClick(view: View) {
         finish()
         slideInLeftOutRight()
+    }
+
+    fun clearSearchBox(view: View)
+    {
+        searchET.setText("")
+        clearButton.visibility = View.GONE
     }
 
 

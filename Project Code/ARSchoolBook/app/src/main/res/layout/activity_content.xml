@@ -152,7 +152,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_7sdp"
                     android:background="@color/transparent"
-                    android:onClick="backClick"
+                    android:onClick="speechInput"
                     android:src="@drawable/ic_baseline_mic_24"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"

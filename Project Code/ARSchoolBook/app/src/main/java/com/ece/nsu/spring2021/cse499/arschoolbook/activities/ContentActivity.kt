@@ -1,17 +1,21 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
@@ -22,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 /**
@@ -30,6 +36,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     private val TAG: String = "CA-debug"
+    private val REQUEST_CODE_FOR_SPEECH = 200
 
     // ui
     private lateinit var backButton : ImageButton
@@ -110,7 +117,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null) {
-                    if(s.length>0) {
+                    if(s.isNotEmpty()) {
                         micButton.visibility = View.GONE
                         clearButton.visibility = View.VISIBLE
                     } else {
@@ -120,6 +127,24 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
                 }
             }
         })
+    }
+
+    //Speech input callback
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            REQUEST_CODE_FOR_SPEECH -> {
+                if (resultCode == RESULT_OK && data != null) {
+                    val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                    searchET.setText(result!![0])
+                    searchET.requestFocus()
+                    searchET.setSelection(searchET.length())
+                    val imm: InputMethodManager =
+                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.showSoftInput(searchET, InputMethodManager.SHOW_IMPLICIT)
+                }
+            }
+        }
     }
 
 
@@ -133,8 +158,6 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         searchET.setText("")
         clearButton.visibility = View.GONE
     }
-
-
 
     fun nextButtonClick(view: View) {
 
@@ -244,4 +267,20 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         startActivity(intent)
         searchET.setText("")
     }
+
+    fun speechInput(view : View) {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        intent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Try saying some search keywords")
+        try {
+            startActivityForResult(intent,REQUEST_CODE_FOR_SPEECH)
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }

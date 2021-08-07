@@ -51,7 +51,6 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/sview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -138,25 +137,65 @@
                 android:theme="@style/Theme.MaterialComponents"
                 app:iconTint="@color/white" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/searchBox"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:background="@drawable/search_box"
-                android:drawableStart="@drawable/ic_search"
-                android:inputType="textWebEditText|textNoSuggestions"
-                android:fontFamily="@font/segoeui"
-                android:hint="@string/search_box_hint"
-                android:paddingStart="15dp"
-                android:paddingTop="@dimen/_10sdp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="@dimen/_10sdp"
-                android:textSize="19.5sp"
-                android:imeOptions="actionSearch"
-                android:drawablePadding="@dimen/_2sdp" />
+                android:layout_marginEnd="@dimen/_15sdp">
+
+                <ImageButton
+                    android:id="@+id/micBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:background="@color/transparent"
+                    android:onClick="backClick"
+                    android:src="@drawable/ic_baseline_mic_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:elevation="@dimen/_5sdp"/>
+                <ImageButton
+                    android:id="@+id/clearBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:background="@color/transparent"
+                    android:onClick="clearSearchBox"
+                    android:src="@drawable/ic_baseline_cancel_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_box"
+                    android:drawableStart="@drawable/ic_search"
+                    android:inputType="textWebEditText|textNoSuggestions"
+                    android:fontFamily="@font/segoeui"
+                    android:hint="@string/search_box_hint"
+                    android:paddingStart="15dp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:textSize="19.5sp"
+                    android:imeOptions="actionSearch"
+                    android:drawablePadding="@dimen/_2sdp" />
+
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 

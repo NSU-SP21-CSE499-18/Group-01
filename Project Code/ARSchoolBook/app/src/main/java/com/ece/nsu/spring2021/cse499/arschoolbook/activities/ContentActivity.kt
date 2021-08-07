@@ -37,6 +37,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     private lateinit var nextButton: Button
     private lateinit var previousButton: Button
     private lateinit var searchET: TextInputEditText
+    private lateinit var micButton : ImageButton
+    private lateinit var clearButton : ImageButton
 
     // models
     private var chapterNo: String = ""
@@ -72,6 +74,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         nextButton = findViewById(R.id.nextBtn)
         previousButton = findViewById(R.id.prevBtn)
         searchET = findViewById(R.id.searchBox)
+        micButton = findViewById(R.id.micBtn)
+        clearButton = findViewById(R.id.clearBtn)
 
         // get data for the UI
         val bundle: Bundle? = intent.extras
@@ -106,6 +110,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         finish()
         slideInLeftOutRight()
     }
+
+
 
     fun nextButtonClick(view: View) {
 
@@ -213,5 +219,6 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         val url = "https://www.google.com/search?q=$keyword"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
+        searchET.setText("")
     }
 }

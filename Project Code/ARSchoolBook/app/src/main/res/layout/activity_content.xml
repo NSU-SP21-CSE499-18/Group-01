@@ -120,21 +120,22 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewFigBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/viewFigBtn"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:padding="@dimen/_6sdp"
-                android:fontFamily="@font/seguisb"
-                android:textColor="@color/white"
-                android:text="@string/view_figures"
                 android:background="@drawable/custom_button"
-                app:icon ="@drawable/ic_ar_icon"
+                android:fontFamily="@font/seguisb"
+                android:onClick="viewFiguresClick"
+                android:padding="@dimen/_6sdp"
+                android:text="@string/view_figures"
+                android:textColor="@color/white"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_ar_icon"
                 app:iconGravity="textStart"
                 app:iconPadding="@dimen/_5sdp"
-                app:backgroundTint="@null"
-                android:theme="@style/Theme.MaterialComponents"
                 app:iconTint="@color/white" />
 
             <RelativeLayout
@@ -148,17 +149,17 @@
                     android:id="@+id/micBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_7sdp"
-                    android:background="@color/transparent"
-                    android:onClick="speechInput"
-                    android:src="@drawable/ic_baseline_mic_24"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:visibility="visible"
-                    android:elevation="@dimen/_5sdp"/>
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:background="@color/transparent"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="speechInput"
+                    android:src="@drawable/ic_baseline_mic_24"
+                    android:visibility="visible" />
                 <ImageButton
                     android:id="@+id/clearBtn"
                     android:layout_width="wrap_content"
@@ -198,42 +199,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/viewFigBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:background="@drawable/custom_button"
-        android:fontFamily="@font/seguisb"
-        android:onClick="viewFiguresClick"
-        android:padding="@dimen/_6sdp"
-        android:text="@string/view_figures"
-        android:textColor="@color/white"
-        android:theme="@style/Theme.MaterialComponents"
-        app:backgroundTint="@null"
-        app:icon="@drawable/ic_ar_icon"
-        app:iconGravity="textStart"
-        app:iconPadding="@dimen/_5sdp"
-        app:iconTint="@color/white" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:background="@drawable/search_box"
-        android:drawableStart="@drawable/ic_search"
-        android:inputType="textWebEditText|textNoSuggestions"
-        android:fontFamily="@font/segoeui"
-        android:hint="@string/search_box_hint"
-        android:paddingStart="15dp"
-        android:paddingTop="@dimen/_10sdp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:textSize="20sp"/>
 
 
 </LinearLayout>

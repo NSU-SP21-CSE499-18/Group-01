@@ -64,7 +64,6 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content)
-
         init()
     }
 
@@ -281,7 +280,8 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
         )
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        var lang = getResources().getConfiguration().getLocales().get(0).toString()
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang)
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Try saying some search keywords")
         try {
             startActivityForResult(intent,REQUEST_CODE_FOR_SPEECH)

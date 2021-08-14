@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SelectFigureActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/_13sdp"
+    android:elevation="@dimen/_15sdp"
+    android:background="@drawable/custom_layout_background"
+    tools:context=".activities.ContentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@color/transparent"
+        android:onClick="backClick"
+        android:src="@drawable/ic_back_icon"
+        android:paddingTop="@dimen/_8sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp">
+        <TextView
+            android:id="@+id/selected_ch_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ch_no_1"
+            android:fontFamily="@font/seguisb"
+            android:textColor="@color/titleColor"
+            android:textSize="@dimen/_21sdp"/>
+        <TextView
+            android:id="@+id/selected_ch_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ch_name_1"
+            android:fontFamily="@font/seguisb"
+            android:textColor="@color/titleColor"
+            android:textSize="@dimen/_18sdp"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_view"
+            android:layout_alignParentTop="true"
+            android:clipToPadding="true"
+            android:layout_above="@id/buttonLayout"/>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_20sdp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_alignParentBottom="true">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewFigBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/seguisb"
+                android:onClick="viewFiguresClick"
+                android:padding="@dimen/_6sdp"
+                android:text="@string/scan_figures"
+                android:textColor="@color/white"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_ar_icon"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_5sdp"
+                app:iconTint="@color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

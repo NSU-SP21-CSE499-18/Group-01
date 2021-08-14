@@ -42,6 +42,7 @@
     <string name="prev" translatable="false">Previous</string>
     <string name="next" translatable="false">Next</string>
     <string name="view_figures" translatable="false">View Figures</string>
+    <string name="scan_figures" translatable="false">Scan Figures</string>
     <string name="search_box_hint" translatable="false">Search Keywords...</string>
 
     <!--    Figure Names -->

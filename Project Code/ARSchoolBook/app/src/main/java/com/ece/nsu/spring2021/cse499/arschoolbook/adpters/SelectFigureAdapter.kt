@@ -14,7 +14,7 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_design, parent, false)
+            .inflate(R.layout.figure_item_view, parent, false)
         return ViewHolder(view)
     }
 

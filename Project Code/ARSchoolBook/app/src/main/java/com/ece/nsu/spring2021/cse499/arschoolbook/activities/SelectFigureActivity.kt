@@ -6,19 +6,22 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
+import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
 
 class SelectFigureActivity : AppCompatActivity() {
 
-    // Intent
     private var chapterNo: String = ""
     private var chapterName: String = ""
+    private lateinit var SELECTED_CHAPTER: String
+    lateinit var data: Array<String>
 
     //UI
     private lateinit var chapterNoTv: TextView
     private lateinit var chapterNameTv: TextView
-    private lateinit var Recyclerview: RecyclerView
+    private lateinit var recyclerview: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,14 +35,24 @@ class SelectFigureActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         chapterNo = bundle?.get("Chapter-No").toString()
         chapterName = bundle?.get("Chapter-Name").toString()
+        SELECTED_CHAPTER = chapterNo
 
         //Init UI components
         chapterNoTv = findViewById(R.id.selected_ch_no_sf)
         chapterNameTv = findViewById(R.id.selected_ch_name_sf)
+        recyclerview = findViewById<RecyclerView>(R.id.recycler_view)
+
 
         // set data to UI
         chapterNoTv.text = chapterNo
         chapterNameTv.text = chapterName
+
+        //Recycler View
+        recyclerview.layoutManager = LinearLayoutManager(this)
+        data = getData(SELECTED_CHAPTER)
+        val adapter = SelectFigureAdapter(data, this)
+        recyclerview.adapter = adapter
+
     }
 
     /**
@@ -61,46 +74,46 @@ class SelectFigureActivity : AppCompatActivity() {
     fun getData(chapterNo: String): Array<String> {
 
         when (chapterNo) {
-            "chapter 1" -> {
+            "Chapter 1" -> {
                 return resources.getStringArray(R.array.fig_ch_1)
             }
-            "chapter 2" -> {
+            "Chapter 2" -> {
                 return resources.getStringArray(R.array.fig_ch_2)
             }
-            "chapter 3" -> {
+            "Chapter 3" -> {
                 return resources.getStringArray(R.array.fig_ch_3)
             }
-            "chapter 4" -> {
+            "Chapter 4" -> {
                 return resources.getStringArray(R.array.fig_ch_4)
             }
-            "chapter 5" -> {
+            "Chapter 5" -> {
                 return resources.getStringArray(R.array.fig_ch_5)
             }
-            "chapter 6" -> {
+            "Chapter 6" -> {
                 return resources.getStringArray(R.array.fig_ch_6)
             }
-            "chapter 7" -> {
+            "Chapter 7" -> {
                 return resources.getStringArray(R.array.fig_ch_7)
             }
-            "chapter 8" -> {
+            "Chapter 8" -> {
                 return resources.getStringArray(R.array.fig_ch_8)
             }
-            "chapter 9" -> {
+            "Chapter 9" -> {
                 return resources.getStringArray(R.array.fig_ch_9)
             }
-            "chapter 10" -> {
+            "Chapter 10" -> {
                 return resources.getStringArray(R.array.fig_ch_10)
             }
-            "chapter 11" -> {
+            "Chapter 11" -> {
                 return resources.getStringArray(R.array.fig_ch_11)
             }
-            "chapter 12" -> {
+            "Chapter 12" -> {
                 return resources.getStringArray(R.array.fig_ch_12)
             }
-            "chapter 13" -> {
+            "Chapter 13" -> {
                 return resources.getStringArray(R.array.fig_ch_13)
             }
-            "chapter 14" -> {
+            "Chapter 14" -> {
                 return resources.getStringArray(R.array.fig_ch_14)
             }
             else -> return emptyArray()

@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/_13sdp"
     android:elevation="@dimen/_15sdp"
     android:background="@drawable/custom_layout_background"
-    tools:context=".activities.ContentActivity">
+    tools:context=".activities.SelectFigureActivity">
 
     <ImageButton
         android:id="@+id/backBtn"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_15sdp">
         <TextView
-            android:id="@+id/selected_ch_no"
+            android:id="@+id/selected_ch_no_sf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ch_no_1"
@@ -38,7 +38,7 @@
             android:textColor="@color/titleColor"
             android:textSize="@dimen/_21sdp"/>
         <TextView
-            android:id="@+id/selected_ch_name"
+            android:id="@+id/selected_ch_name_sf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ch_name_1"
@@ -91,6 +91,4 @@
                 app:iconTint="@color/white" />
         </LinearLayout>
     </RelativeLayout>
-
-
 </LinearLayout>

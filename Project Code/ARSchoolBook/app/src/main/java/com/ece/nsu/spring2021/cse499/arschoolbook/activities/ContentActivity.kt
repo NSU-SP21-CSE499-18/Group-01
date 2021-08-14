@@ -178,12 +178,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         playVideoAtPosition(currentVideoPosition)
     }
 
-    /**
-     * view figures onClick listener
-     */
-    fun viewFiguresClick(view: View) {
-        startActivity(Intent(this, AugmentedImagesActivity::class.java))
-    }
+
 
     /**
      * listener for when youtube player is ready to play the video

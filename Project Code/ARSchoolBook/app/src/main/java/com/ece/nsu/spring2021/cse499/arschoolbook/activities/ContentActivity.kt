@@ -290,4 +290,16 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         }
     }
 
+    fun startSelectFigureActivity(view :View)
+    {
+        val intent = Intent(this, SelectFigureActivity::class.java)
+        intent.putExtra("Chapter-Name",chapterName)
+        intent.putExtra("Chapter-No",chapterNo)
+        startActivity(intent)
+        slideInRightOutLeft()
+    }
+    fun slideInRightOutLeft() {
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+    }
+
 }

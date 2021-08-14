@@ -46,53 +46,66 @@
     <string name="search_box_hint" translatable="false">Search Keywords...</string>
 
     <!--    Figure Names -->
+    <string name="fig_no_1.1">Virus Particle</string>
+    <string name="fig_no_1.6">Microscopic structure of amoeba</string>
+    <string name="fig_no_1.7">Entamoeba</string>
+    <string name="fig_no_2.1a">Different parts of a plant cell</string>
+    <string name="fig_no_2.1b">Different parts of an animal cell</string>
+    <string name="fig_no_2.3">Different parts of nucleus</string>
+    <string name="fig_no_2.6">A single neurone</string>
+    <string name="fig_no_4.3">Human respiratory system</string>
+    <string name="fig_no_5.1">Digestive System</string>
+    <string name="fig_no_12.1">The solar system</string>
+    <string name="not_available" translatable="false">Not Available</string>
+
+
     <string-array name="fig_ch_1">
-        <item>Virus Particle</item>
-        <item>Microscopic structure of amoeba</item>
-        <item>Entamoeba</item>
+        <item>@string/fig_no_1.1</item>
+        <item>@string/fig_no_1.6</item>
+        <item>@string/fig_no_1.7</item>
 
     </string-array>
     <string-array name="fig_ch_2">
-        <item>Different parts of a plant cell</item>
-        <item>Different parts of an animal cell</item>
-        <item>Different parts of nucleus</item>
-        <item>A single neurone</item>
+        <item>@string/fig_no_2.1a</item>
+        <item>@string/fig_no_2.1b</item>
+        <item>@string/fig_no_2.3</item>
+        <item>@string/fig_no_2.6</item>
     </string-array>
     <string-array name="fig_ch_3">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_4">
-        <item>Human respiratory system</item>
+        <item>@string/fig_no_4.3</item>
     </string-array>
     <string-array name="fig_ch_5">
-        <item>Digestive System</item>
+        <item>@string/fig_no_5.1</item>
     </string-array>
     <string-array name="fig_ch_6">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_7">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_8">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_9">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_10">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_11">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_12">
-        <item>The solar system</item>
+        <item>@string/fig_no_12.1</item>
     </string-array>
     <string-array name="fig_ch_13">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
     <string-array name="fig_ch_14">
-        <item>Not Available</item>
+        <item>@string/not_available</item>
     </string-array>
 
 </resources>

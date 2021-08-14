@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 
@@ -22,7 +23,7 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = mList[position]
 
-        holder.textView.setOnClickListener {
+        holder.card.setOnClickListener {
 
             //Start intent here.......
 
@@ -34,5 +35,6 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.fig_item_text_view)
+        val card: CardView = itemView.findViewById(R.id.card)
     }
 }

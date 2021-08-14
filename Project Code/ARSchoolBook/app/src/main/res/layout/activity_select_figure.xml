@@ -60,20 +60,13 @@
             android:id="@+id/recycler_view"
             android:layout_alignParentTop="true"
             android:clipToPadding="true"
-            android:layout_above="@id/buttonLayout"/>
+            android:layout_above="@id/scanFigBtn"/>
 
-        <LinearLayout
-            android:id="@+id/buttonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/_20sdp"
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_alignParentBottom="true">
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/viewFigBtn"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/scanFigBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -90,6 +83,6 @@
                 app:iconGravity="textStart"
                 app:iconPadding="@dimen/_5sdp"
                 app:iconTint="@color/white" />
-        </LinearLayout>
+
     </RelativeLayout>
 </LinearLayout>

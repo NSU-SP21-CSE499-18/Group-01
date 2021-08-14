@@ -58,4 +58,53 @@ class SelectFigureActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
+    fun getData(chapterNo: String): Array<String> {
+
+        when (chapterNo) {
+            "chapter 1" -> {
+                return resources.getStringArray(R.array.fig_ch_1)
+            }
+            "chapter 2" -> {
+                return resources.getStringArray(R.array.fig_ch_2)
+            }
+            "chapter 3" -> {
+                return resources.getStringArray(R.array.fig_ch_3)
+            }
+            "chapter 4" -> {
+                return resources.getStringArray(R.array.fig_ch_4)
+            }
+            "chapter 5" -> {
+                return resources.getStringArray(R.array.fig_ch_5)
+            }
+            "chapter 6" -> {
+                return resources.getStringArray(R.array.fig_ch_6)
+            }
+            "chapter 7" -> {
+                return resources.getStringArray(R.array.fig_ch_7)
+            }
+            "chapter 8" -> {
+                return resources.getStringArray(R.array.fig_ch_8)
+            }
+            "chapter 9" -> {
+                return resources.getStringArray(R.array.fig_ch_9)
+            }
+            "chapter 10" -> {
+                return resources.getStringArray(R.array.fig_ch_10)
+            }
+            "chapter 11" -> {
+                return resources.getStringArray(R.array.fig_ch_11)
+            }
+            "chapter 12" -> {
+                return resources.getStringArray(R.array.fig_ch_12)
+            }
+            "chapter 13" -> {
+                return resources.getStringArray(R.array.fig_ch_13)
+            }
+            "chapter 14" -> {
+                return resources.getStringArray(R.array.fig_ch_14)
+            }
+            else -> return emptyArray()
+        }
+    }
+
 }

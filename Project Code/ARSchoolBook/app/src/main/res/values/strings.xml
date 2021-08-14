@@ -44,4 +44,54 @@
     <string name="view_figures" translatable="false">View Figures</string>
     <string name="search_box_hint" translatable="false">Search Keywords...</string>
 
+    <!--    Figure Names -->
+    <string-array name="fig_ch_1">
+        <item>Virus Particle</item>
+        <item>Microscopic structure of amoeba</item>
+        <item>Entamoeba</item>
+
+    </string-array>
+    <string-array name="fig_ch_2">
+        <item>Different parts of a plant cell</item>
+        <item>Different parts of a animal cell</item>
+        <item>Different parts of nucleus</item>
+        <item>A single neurone</item>
+    </string-array>
+    <string-array name="fig_ch_3">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_4">
+        <item>Human respiratory system</item>
+    </string-array>
+    <string-array name="fig_ch_5">
+        <item>Digestive System</item>
+    </string-array>
+    <string-array name="fig_ch_6">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_7">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_8">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_9">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_10">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_11">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_12">
+        <item>The solar system</item>
+    </string-array>
+    <string-array name="fig_ch_13">
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="fig_ch_14">
+        <item>Not Available</item>
+    </string-array>
+
 </resources>

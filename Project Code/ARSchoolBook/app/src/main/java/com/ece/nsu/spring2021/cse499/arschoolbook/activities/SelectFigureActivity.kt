@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 
 class SelectFigureActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class SelectFigureActivity : AppCompatActivity() {
     //UI
     private lateinit var chapterNoTv: TextView
     private lateinit var chapterNameTv: TextView
+    private lateinit var Recyclerview: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +40,6 @@ class SelectFigureActivity : AppCompatActivity() {
         // set data to UI
         chapterNoTv.text = chapterNo
         chapterNameTv.text = chapterName
-
-
     }
 
     /**

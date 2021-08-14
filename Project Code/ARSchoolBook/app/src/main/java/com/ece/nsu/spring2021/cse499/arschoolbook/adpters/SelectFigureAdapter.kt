@@ -33,6 +33,6 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
     override fun getItemCount(): Int {return mList.size }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val textView: TextView = itemView.findViewById(R.id.textView)
+        val textView: TextView = itemView.findViewById(R.id.fig_item_text_view)
     }
 }

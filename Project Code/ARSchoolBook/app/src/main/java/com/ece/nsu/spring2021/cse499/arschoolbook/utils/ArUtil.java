@@ -2,7 +2,8 @@ package com.ece.nsu.spring2021.cse499.arschoolbook.utils;
 
 /**
  * Util class for holding static values of,
- * figure id, names of images in the ARImageDatabase and .glb file names in assets
+ * figure id, names of images in the ARImageDatabase
+ * and name and link of .glb file names in assets
  */
 public abstract class ArUtil {
 
@@ -43,4 +44,16 @@ public abstract class ArUtil {
             LUNG_MODEL_FILE = "lung.glb",
             DIGESTIVE_MODEL_FILE = "digestiveSystem.glb";
 
+    // url to 3d model glb files hosted in github
+    public static final String
+            SOLAR_SYSTEM_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/solarSystem.glb",
+            VIRUS_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/virus.glb",
+            //AMOEBA_MODEL_URL = "1_6.jpg",
+            //ENTAMOEBA_MODEL_URL = "1_7.jpg",
+            PLANT_CELL_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/plantCell.glb",
+            ANIMAL_CELL_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/animalCell.glb",
+            //NUCLEUS_MODEL_URL = "2_3.jpg",
+            NEURON_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/neuron.glb",
+            LUNG_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/lung.glb",
+            DIGESTIVE_MODEL_URL = "https://raw.githubusercontent.com/NSU-SP21-CSE499-18/Group-01/main/Documentation/AR%20Book%20Resources/3D%20Models/Edited%20Models/digestiveSystem.glb";
 }

@@ -3,15 +3,15 @@ package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
+import com.google.ar.core.ArCoreApk
 
 class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigureAdapterCallback {
 
@@ -75,12 +75,37 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
      * onClick listener for SelectFigureRecyclerview items
      */
     override fun onFigureItemClick(figureName: String) {
-        Log.d(TAG, "onFigureItemClick: clicked on figure item = "+figureName)
+        Log.d(TAG, "onFigureItemClick: clicked on figure item = $figureName")
 
-        // open ViewSelectedArModelActivity
-        val intent = Intent(this, ViewSelectedArModelActivity::class.java)
-        intent.putExtra("Figure-Name", figureName)
-        startActivity(intent)
+        showFigure3dModel(figureName)
+    }
+
+    /**
+     * check for AR availability and open 3D view or AR view accordingly
+     */
+    private fun showFigure3dModel(figureName: String) {
+        val availability = ArCoreApk.getInstance().checkAvailability(this)
+        if (availability.isTransient) {
+            // Continue to query availability at 5Hz while compatibility is checked in the background.
+            Handler().postDelayed({
+                showFigure3dModel(figureName)
+            }, 200)
+        }
+
+        if (availability.isSupported) {
+            Log.d(TAG, "showFigure3dModel: device supports AR")
+
+            // open ARView -> ViewSelectedArModelActivity
+            val intent = Intent(this, ViewSelectedArModelActivity::class.java)
+            intent.putExtra("Figure-Name", figureName)
+            startActivity(intent)
+        }
+
+        else {
+            Log.d(TAG, "showFigure3dModel: device does not support AR")
+
+            // todo: open 3d view
+        }
     }
 
     fun slideInLeftOutRight() {

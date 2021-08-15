@@ -59,7 +59,7 @@ class SelectFigureActivity : AppCompatActivity() {
     /**
      * view figures onClick listener
      */
-     fun viewFiguresClick(view: View) {
+     fun scanFiguresClick(view: View) {
         startActivity(Intent(this, AugmentedImagesActivity::class.java))
     }
 

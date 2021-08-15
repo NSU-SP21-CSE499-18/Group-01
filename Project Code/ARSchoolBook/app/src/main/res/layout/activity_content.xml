@@ -127,7 +127,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:background="@drawable/custom_button"
                 android:fontFamily="@font/seguisb"
-                android:onClick="startSelectFigureActivity"
+                android:onClick="viewFiguresClick"
                 android:padding="@dimen/_6sdp"
                 android:text="@string/view_figures"
                 android:textColor="@color/white"

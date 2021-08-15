@@ -1,6 +1,7 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -95,17 +96,41 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
         if (availability.isSupported) {
             Log.d(TAG, "showFigure3dModel: device supports AR")
 
-            // open ARView -> ViewSelectedArModelActivity
-            val intent = Intent(this, ViewSelectedArModelActivity::class.java)
-            intent.putExtra("Figure-Name", figureName)
-            startActivity(intent)
+            showFigureInArView(figureName)
         }
 
         else {
             Log.d(TAG, "showFigure3dModel: device does not support AR")
 
-            // todo: open 3d view
+            showFigureIn3dView(figureName)
         }
+    }
+
+    private fun showFigureInArView(figureName: String) {
+        // open Ar view -> ViewSelectedArModelActivity
+
+        val intent = Intent(this, ViewSelectedArModelActivity::class.java)
+        intent.putExtra("Figure-Name", figureName)
+        startActivity(intent)
+    }
+
+    private fun showFigureIn3dView(figureName: String) {
+        // open 3d view
+
+        // todo: set proper url for selected figure-wise model
+        val modelUrl = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf"
+
+        val sceneViewerIntent = Intent(Intent.ACTION_VIEW)
+        val intentUri: Uri = Uri.parse("https://arvr.google.com/scene-viewer/1.0").buildUpon()
+            .appendQueryParameter(
+                "file",
+                modelUrl
+            )
+            .appendQueryParameter("mode", "3d_only")
+            .build()
+        sceneViewerIntent.data = intentUri
+        sceneViewerIntent.setPackage("com.google.ar.core")
+        startActivity(sceneViewerIntent)
     }
 
     fun slideInLeftOutRight() {

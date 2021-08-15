@@ -12,7 +12,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ece.nsu.spring2021.cse499.arschoolbook.R;
-import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ARImgDbUtil;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil;
 import com.google.ar.core.HitResult;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Sceneform;
@@ -20,8 +20,6 @@ import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
-
-import java.util.concurrent.CompletableFuture;
 
 /**
  * Activity to show user selected AR model
@@ -33,6 +31,7 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
     // ui
     private ArFragment mArFragment;
 
+    private String mFigureName;
     private boolean mArModelShown = false;
 
     @Override
@@ -44,6 +43,9 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
     }
 
     private void init(Bundle savedInstanceState){
+
+        mFigureName = getIntent().getStringExtra("Figure-Name");
+        Log.d(TAG, "init: figure name from intent = "+mFigureName);
 
         getSupportFragmentManager().addFragmentOnAttachListener((fragmentManager, fragment) -> {
             if (fragment.getId() == R.id.arFragment) {
@@ -69,51 +71,101 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
         if(mArModelShown) return;
 
         mArModelShown = true;
-
         // hide plane indicating dots
         mArFragment.getArSceneView().getPlaneRenderer().setVisible(false);
 
-        CompletableFuture<ModelRenderable> modelRenderableCompletableFuture = null;
+        String modelUriPath;
 
-        modelRenderableCompletableFuture = ModelRenderable.builder()
-                .setSource(this, Uri.parse(ARImgDbUtil.VIRUS_MODEL_FILE))
+        if (mFigureName.equals(getString(R.string.fig_no_1_1))) {
+            modelUriPath = ArUtil.VIRUS_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_1_6))) {
+            showToast("Sorry, model not available");
+            finish();
+            return;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_1_7))) {
+            showToast("Sorry, model not available");
+            finish();
+            return;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_2_1a))) {
+            modelUriPath = ArUtil.PLANT_CELL_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_2_1b))) {
+            modelUriPath = ArUtil.ANIMAL_CELL_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_2_3))) {
+            showToast("Sorry, model not available");
+            finish();
+            return;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_2_6))) {
+            modelUriPath = ArUtil.NEURON_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_4_3))) {
+            modelUriPath = ArUtil.LUNG_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_5_1))) {
+            modelUriPath = ArUtil.DIGESTIVE_MODEL_FILE;
+        }
+
+        else if(mFigureName.equals(getString(R.string.fig_no_12_1))) {
+            modelUriPath = ArUtil.SOLAR_SYSTEM_MODEL_FILE;
+        }
+
+        else {
+            Log.d(TAG, "showArModel: invalid figure name");
+            finish();
+            return;
+        }
+
+        Log.d(TAG, "showArModel: showing model = "+modelUriPath);
+
+        ModelRenderable.builder()
+                .setSource(this, Uri.parse(modelUriPath))
                 .setIsFilamentGltf(true)
-                .build();
+                .build()
+                .thenAccept(model -> {
+                    // setting anchorNode
+                    AnchorNode anchorNode = new AnchorNode(hitResult.createAnchor());
+                    mArFragment.getArSceneView().getScene().addChild(anchorNode);
 
-        modelRenderableCompletableFuture.thenAccept(model -> {
-            // setting anchorNode
-            AnchorNode anchorNode = new AnchorNode(hitResult.createAnchor());
-            mArFragment.getArSceneView().getScene().addChild(anchorNode);
+                    TransformableNode modelNode = new TransformableNode(mArFragment.getTransformationSystem());
 
-            TransformableNode modelNode = new TransformableNode(mArFragment.getTransformationSystem());
+                    modelNode.select();
 
-            modelNode.select();
+                    // set initial size
+                    modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
+                    // set max, min size
+                    modelNode.getScaleController().setMaxScale(0.10f);
+                    modelNode.getScaleController().setMinScale(0.025f);
 
-            // set initial size
-            modelNode.setLocalScale(new Vector3(0.05f, 0.05f, 0.05f));
-            // set max, min size
-            modelNode.getScaleController().setMaxScale(0.10f);
-            modelNode.getScaleController().setMinScale(0.025f);
+                    modelNode.setParent(anchorNode);
+                    modelNode.setRenderable(model);
 
-            modelNode.setParent(anchorNode);
-            modelNode.setRenderable(model);
+                    if(modelNode.getRenderableInstance() != null){
+                        // removing shadows
+                        modelNode.getRenderableInstance().setShadowCaster(true);
+                        modelNode.getRenderableInstance().setShadowReceiver(true);
+                    }
+                })
+                .exceptionally(throwable -> {
+                    Log.d(TAG, "showArModel: error while showing model:"+throwable.getMessage());
 
-            if(modelNode.getRenderableInstance() != null){
-                // removing shadows
-                modelNode.getRenderableInstance().setShadowCaster(true);
-                modelNode.getRenderableInstance().setShadowReceiver(true);
-            }
-        }).exceptionally(throwable -> {
-            Log.d(TAG, "onUpdate: error while showing model: "+throwable.getMessage());
+                    showToast("Failed to load AR model, please try again");
+                    finish();
 
-            showToast("Failed to load AR model, please try again");
-            mArModelShown = false;
-            // show plane indicating dots
-            mArFragment.getArSceneView().getPlaneRenderer().setVisible(true);
-
-            return null;
-        });
-
+                    return null;
+                });
     }
 
     @Override

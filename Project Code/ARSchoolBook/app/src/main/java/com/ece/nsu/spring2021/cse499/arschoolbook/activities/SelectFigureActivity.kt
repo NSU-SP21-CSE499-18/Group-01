@@ -1,18 +1,24 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil
+import com.google.ar.core.ArCoreApk
 
-class SelectFigureActivity : AppCompatActivity() {
+class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigureAdapterCallback {
+
+    private var TAG: String = "SFA-debug"
 
     private var chapterNo: String = ""
     private var chapterName: String = ""
@@ -50,7 +56,7 @@ class SelectFigureActivity : AppCompatActivity() {
 
         //Recycler View
         recyclerview.layoutManager = LinearLayoutManager(this)
-        data = getData(SELECTED_CHAPTER)
+        data = getFigureNameListFromSelectedChapter(SELECTED_CHAPTER)
         val adapter = SelectFigureAdapter(data, this)
         recyclerview.adapter = adapter
 
@@ -68,11 +74,101 @@ class SelectFigureActivity : AppCompatActivity() {
         slideInLeftOutRight()
     }
 
-    fun slideInLeftOutRight() {
+    /**
+     * onClick listener for SelectFigureRecyclerview items
+     */
+    override fun onFigureItemClick(figureName: String) {
+        Log.d(TAG, "onFigureItemClick: clicked on figure item = $figureName")
+
+        showFigure3dModel(figureName)
+    }
+
+    /**
+     * check for AR availability and open 3D view or AR view accordingly
+     */
+    private fun showFigure3dModel(figureName: String) {
+        val availability = ArCoreApk.getInstance().checkAvailability(this)
+        if (availability.isTransient) {
+            // Continue to query availability at 5Hz while compatibility is checked in the background.
+            Handler().postDelayed({
+                showFigure3dModel(figureName)
+            }, 200)
+        }
+
+        if (availability.isSupported) {
+            Log.d(TAG, "showFigure3dModel: device supports AR")
+
+            showFigureInArView(figureName)
+        }
+
+        else {
+            Log.d(TAG, "showFigure3dModel: device does not support AR")
+
+            showFigureIn3dView(figureName)
+        }
+    }
+
+    private fun showFigureInArView(figureName: String) {
+        // open Ar view -> ViewSelectedArModelActivity
+
+        val intent = Intent(this, ViewSelectedArModelActivity::class.java)
+        intent.putExtra("Figure-Name", figureName)
+        startActivity(intent)
+    }
+
+    private fun showFigureIn3dView(figureName: String) {
+        // open 3d view
+
+        val modelUrl = getModelUrlBasedOnFigureName(figureName)
+
+        if(modelUrl==null || modelUrl.isEmpty()) {
+            Log.d(TAG, "showFigureIn3dView: modelUrl not found for figure=$figureName")
+            showToast("Sorry, figure not available")
+            return
+        }
+
+        Log.d(TAG, "showFigureIn3dView: model url = "+modelUrl)
+
+        val sceneViewerIntent = Intent(Intent.ACTION_VIEW)
+        val intentUri: Uri = Uri.parse("https://arvr.google.com/scene-viewer/1.0").buildUpon()
+            .appendQueryParameter(
+                "file",
+                modelUrl
+            )
+            .appendQueryParameter("mode", "3d_only")
+            .build()
+        sceneViewerIntent.data = intentUri
+        sceneViewerIntent.setPackage("com.google.ar.core")
+        startActivity(sceneViewerIntent)
+    }
+
+    private fun getModelUrlBasedOnFigureName(figureName: String): String? {
+
+        when(figureName){
+
+            getString(R.string.fig_no_1_1) -> return ArUtil.VIRUS_MODEL_URL
+
+            getString(R.string.fig_no_2_1a) -> return ArUtil.PLANT_CELL_MODEL_URL
+
+            getString(R.string.fig_no_2_1b) -> return ArUtil.ANIMAL_CELL_MODEL_URL
+
+            getString(R.string.fig_no_2_6) -> return ArUtil.NEURON_MODEL_URL
+
+            getString(R.string.fig_no_4_3) -> return ArUtil.LUNG_MODEL_URL
+
+            getString(R.string.fig_no_5_1) -> return ArUtil.DIGESTIVE_MODEL_URL
+
+            getString(R.string.fig_no_12_1) -> return ArUtil.SOLAR_SYSTEM_MODEL_URL
+        }
+
+        return null
+    }
+
+    private fun slideInLeftOutRight() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
-    fun getData(chapterNo: String): Array<String> {
+    private fun getFigureNameListFromSelectedChapter(chapterNo: String): Array<String> {
 
         when (chapterNo) {
             "Chapter 1","অধ্যায় ১" -> {
@@ -121,4 +217,7 @@ class SelectFigureActivity : AppCompatActivity() {
         }
     }
 
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }

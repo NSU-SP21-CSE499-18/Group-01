@@ -12,7 +12,9 @@ import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.activities.ViewSelectedArModelActivity
 
 
-class SelectFigureAdapter(private val mList: Array<String>, private val context: Context) : RecyclerView.Adapter<SelectFigureAdapter.ViewHolder>() {
+class SelectFigureAdapter(private val mList: Array<String>,
+                          private val selectFigureAdapterCallback: SelectFigureAdapterCallback)
+    : RecyclerView.Adapter<SelectFigureAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -28,11 +30,7 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
         holder.textView.text = figureName
 
         holder.card.setOnClickListener {
-
-            // open ViewSelectedArModelActivity
-            val intent = Intent(context, ViewSelectedArModelActivity::class.java)
-            intent.putExtra("Figure-Name", figureName)
-            context.startActivity(intent)
+            selectFigureAdapterCallback.onFigureItemClick(figureName)
         }
     }
 
@@ -41,5 +39,9 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.fig_item_text_view)
         val card: CardView = itemView.findViewById(R.id.card)
+    }
+
+    interface SelectFigureAdapterCallback{
+        fun onFigureItemClick(figureName: String)
     }
 }

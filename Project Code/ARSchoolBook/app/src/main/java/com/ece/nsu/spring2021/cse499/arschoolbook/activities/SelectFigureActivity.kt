@@ -3,6 +3,7 @@ package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
 
-class SelectFigureActivity : AppCompatActivity() {
+class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigureAdapterCallback {
+
+    private var TAG: String = "SFA-debug"
 
     private var chapterNo: String = ""
     private var chapterName: String = ""
@@ -66,6 +69,18 @@ class SelectFigureActivity : AppCompatActivity() {
     fun backClick(view: View) {
         finish()
         slideInLeftOutRight()
+    }
+
+    /**
+     * onClick listener for SelectFigureRecyclerview items
+     */
+    override fun onFigureItemClick(figureName: String) {
+        Log.d(TAG, "onFigureItemClick: clicked on figure item = "+figureName)
+
+        // open ViewSelectedArModelActivity
+        val intent = Intent(this, ViewSelectedArModelActivity::class.java)
+        intent.putExtra("Figure-Name", figureName)
+        startActivity(intent)
     }
 
     fun slideInLeftOutRight() {

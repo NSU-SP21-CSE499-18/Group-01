@@ -178,12 +178,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         playVideoAtPosition(currentVideoPosition)
     }
 
-    /**
-     * view figures onClick listener
-     */
-    fun viewFiguresClick(view: View) {
-        startActivity(Intent(this, AugmentedImagesActivity::class.java))
-    }
+
 
     /**
      * listener for when youtube player is ready to play the video
@@ -262,11 +257,11 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         mYouTubePlayer!!.pause()
     }
 
-    fun slideInLeftOutRight() {
+    private fun slideInLeftOutRight() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
-    fun performSearch(keyword: Editable?)
+    private fun performSearch(keyword: Editable?)
     {
         val url = "https://www.google.com/search?q=$keyword"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -288,6 +283,18 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         } catch (e: Exception) {
             Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun viewFiguresClick(view :View)
+    {
+        val intent = Intent(this, SelectFigureActivity::class.java)
+        intent.putExtra("Chapter-Name",chapterName)
+        intent.putExtra("Chapter-No",chapterNo)
+        startActivity(intent)
+        slideInRightOutLeft()
+    }
+    private fun slideInRightOutLeft() {
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
 }

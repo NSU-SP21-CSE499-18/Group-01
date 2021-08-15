@@ -25,7 +25,7 @@ import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.BaseArFragment;
-import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ARImgDbUtil;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil;
 import com.google.ar.sceneform.ux.TransformableNode;
 
 import java.io.InputStream;
@@ -139,25 +139,25 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
 
                     switch (image.getIndex()){
 
-                        case ARImgDbUtil.SOLAR_SYSTEM_IMG_ID:
+                        case ArUtil.SOLAR_SYSTEM_IMG_ID:
                             Log.d(TAG, "onUpdate: Solar System figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.SOLAR_SYSTEM_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.SOLAR_SYSTEM_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.VIRUS_IMG_ID:
+                        case ArUtil.VIRUS_IMG_ID:
                             Log.d(TAG, "onUpdate: Virus figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.VIRUS_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.VIRUS_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.AMOEBA_IMG_ID:
+                        case ArUtil.AMOEBA_IMG_ID:
                             Log.d(TAG, "onUpdate: Amoeba figure detected");
 
                             showToast("Sorry, no 3D view to show for detected image");
@@ -165,7 +165,7 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                             return;
                             //break;
 
-                        case ARImgDbUtil.ENTAMOEBA_IMG_ID:
+                        case ArUtil.ENTAMOEBA_IMG_ID:
                             Log.d(TAG, "onUpdate: Entamoeba figure detected");
 
                             showToast("Sorry, no 3D view to show for detected image");
@@ -173,25 +173,25 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                             return;
                             //break;
 
-                        case ARImgDbUtil.PLANT_CELL_IMG_ID:
+                        case ArUtil.PLANT_CELL_IMG_ID:
                             Log.d(TAG, "onUpdate: Plant Cell figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.PLANT_CELL_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.PLANT_CELL_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.ANIMAL_CELL_IMG_ID:
+                        case ArUtil.ANIMAL_CELL_IMG_ID:
                             Log.d(TAG, "onUpdate: Animal Cell figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.ANIMAL_CELL_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.ANIMAL_CELL_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.NUCLEUS_IMG_ID:
+                        case ArUtil.NUCLEUS_IMG_ID:
                             Log.d(TAG, "onUpdate: Nucleus figure detected");
 
                             showToast("Sorry, no 3D view to show for detected image");
@@ -199,29 +199,29 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                             return;
                             //break;
 
-                        case ARImgDbUtil.NEURON_IMG_ID:
+                        case ArUtil.NEURON_IMG_ID:
                             Log.d(TAG, "onUpdate: Neuron figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.NEURON_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.NEURON_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.LUNG_IMG_ID:
+                        case ArUtil.LUNG_IMG_ID:
                             Log.d(TAG, "onUpdate: Lung figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.LUNG_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.LUNG_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;
 
-                        case ARImgDbUtil.DIGESTIVE_SYSTEM_IMG_ID:
+                        case ArUtil.DIGESTIVE_SYSTEM_IMG_ID:
                             Log.d(TAG, "onUpdate: Digestive System figure detected");
 
                             modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ARImgDbUtil.DIGESTIVE_MODEL_FILE))
+                                    .setSource(this, Uri.parse(ArUtil.DIGESTIVE_MODEL_FILE))
                                     .setIsFilamentGltf(true)
                                     .build();
                             break;

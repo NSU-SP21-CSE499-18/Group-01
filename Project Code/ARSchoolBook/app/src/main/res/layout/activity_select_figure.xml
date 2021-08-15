@@ -62,27 +62,27 @@
             android:clipToPadding="true"
             android:layout_above="@id/scanFigBtn"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/scanFigBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:background="@drawable/custom_button"
-                android:fontFamily="@font/seguisb"
-                android:onClick="viewFiguresClick"
-                android:padding="@dimen/_6sdp"
-                android:text="@string/scan_figures"
-                android:textColor="@color/white"
-                android:theme="@style/Theme.MaterialComponents"
-                app:backgroundTint="@null"
-                app:icon="@drawable/ic_ar_icon"
-                app:iconGravity="textStart"
-                app:iconPadding="@dimen/_5sdp"
-                app:iconTint="@color/white" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scanFigBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/seguisb"
+            android:onClick="scanFiguresClick"
+            android:padding="@dimen/_6sdp"
+            android:text="@string/scan_figures"
+            android:textColor="@color/white"
+            android:theme="@style/Theme.MaterialComponents"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_ar_icon"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_5sdp"
+            app:iconTint="@color/white" />
 
     </RelativeLayout>
 </LinearLayout>

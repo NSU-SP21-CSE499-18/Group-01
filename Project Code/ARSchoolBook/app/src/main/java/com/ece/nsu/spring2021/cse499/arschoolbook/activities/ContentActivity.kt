@@ -257,11 +257,11 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         mYouTubePlayer!!.pause()
     }
 
-    fun slideInLeftOutRight() {
+    private fun slideInLeftOutRight() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
-    fun performSearch(keyword: Editable?)
+    private fun performSearch(keyword: Editable?)
     {
         val url = "https://www.google.com/search?q=$keyword"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -285,7 +285,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         }
     }
 
-    fun startSelectFigureActivity(view :View)
+    fun viewFiguresClick(view :View)
     {
         val intent = Intent(this, SelectFigureActivity::class.java)
         intent.putExtra("Chapter-Name",chapterName)
@@ -293,7 +293,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         startActivity(intent)
         slideInRightOutLeft()
     }
-    fun slideInRightOutLeft() {
+    private fun slideInRightOutLeft() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 

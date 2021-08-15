@@ -1,14 +1,15 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.adpters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.ViewSelectedArModelActivity
 
 
 class SelectFigureAdapter(private val mList: Array<String>, private val context: Context) : RecyclerView.Adapter<SelectFigureAdapter.ViewHolder>() {
@@ -21,13 +22,17 @@ class SelectFigureAdapter(private val mList: Array<String>, private val context:
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = mList[position]
+
+        val figureName: String = mList[position]
+
+        holder.textView.text = figureName
 
         holder.card.setOnClickListener {
 
-            //Start intent here.......
-
-            Toast.makeText(context, holder.textView.text, Toast.LENGTH_SHORT).show()
+            // open ViewSelectedArModelActivity
+            val intent = Intent(context, ViewSelectedArModelActivity::class.java)
+            intent.putExtra("Figure-Name", figureName)
+            context.startActivity(intent)
         }
     }
 

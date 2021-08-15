@@ -1,10 +1,10 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.utils;
 
 /**
- * Util class for holding static values
- * of figure id and names of images in the Augmented Image database
+ * Util class for holding static values of,
+ * figure id, names of images in the ARImageDatabase and .glb file names in assets
  */
-public abstract class ARImgDbUtil {
+public abstract class ArUtil {
 
     public static final int
             SOLAR_SYSTEM_IMG_ID = 0,

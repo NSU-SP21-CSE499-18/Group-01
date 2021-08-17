@@ -88,12 +88,6 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
      */
     private fun showFigure3dModel(figureName: String) {
         val availability = ArCoreApk.getInstance().checkAvailability(this)
-        if (availability.isTransient) {
-            // Continue to query availability at 5Hz while compatibility is checked in the background.
-            Handler().postDelayed({
-                showFigure3dModel(figureName)
-            }, 200)
-        }
 
         if (availability.isSupported) {
             Log.d(TAG, "showFigure3dModel: device supports AR")

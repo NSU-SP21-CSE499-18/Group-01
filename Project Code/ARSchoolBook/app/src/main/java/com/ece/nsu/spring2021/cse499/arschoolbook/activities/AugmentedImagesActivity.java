@@ -99,7 +99,7 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
 
         } catch (Exception e){
             Log.d(TAG, "onSessionConfiguration: failed to create augmented images database, error:"+e.getMessage());
-            finish(); // TODO: handle this gracefully
+            finishGracefully();
         }
     }
 
@@ -133,105 +133,22 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
 
                     mArImageDetected = true;
 
-                    // init variables for showing AR model
-                    WeakReference<AugmentedImagesActivity> weakActivity = new WeakReference<>(this);
-                    CompletableFuture<ModelRenderable> modelRenderableCompletableFuture = null;
-
-                    switch (image.getIndex()){
-
-                        case ArUtil.SOLAR_SYSTEM_IMG_ID:
-                            Log.d(TAG, "onUpdate: Solar System figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.SOLAR_SYSTEM_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.VIRUS_IMG_ID:
-                            Log.d(TAG, "onUpdate: Virus figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.VIRUS_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.AMOEBA_IMG_ID:
-                            Log.d(TAG, "onUpdate: Amoeba figure detected");
-
-                            showToast("Sorry, no 3D view to show for detected image");
-                            mArImageDetected = false;
-                            return;
-                            //break;
-
-                        case ArUtil.ENTAMOEBA_IMG_ID:
-                            Log.d(TAG, "onUpdate: Entamoeba figure detected");
-
-                            showToast("Sorry, no 3D view to show for detected image");
-                            mArImageDetected = false;
-                            return;
-                            //break;
-
-                        case ArUtil.PLANT_CELL_IMG_ID:
-                            Log.d(TAG, "onUpdate: Plant Cell figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.PLANT_CELL_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.ANIMAL_CELL_IMG_ID:
-                            Log.d(TAG, "onUpdate: Animal Cell figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.ANIMAL_CELL_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.NUCLEUS_IMG_ID:
-                            Log.d(TAG, "onUpdate: Nucleus figure detected");
-
-                            showToast("Sorry, no 3D view to show for detected image");
-                            mArImageDetected = false;
-                            return;
-                            //break;
-
-                        case ArUtil.NEURON_IMG_ID:
-                            Log.d(TAG, "onUpdate: Neuron figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.NEURON_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.LUNG_IMG_ID:
-                            Log.d(TAG, "onUpdate: Lung figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.LUNG_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        case ArUtil.DIGESTIVE_SYSTEM_IMG_ID:
-                            Log.d(TAG, "onUpdate: Digestive System figure detected");
-
-                            modelRenderableCompletableFuture = ModelRenderable.builder()
-                                    .setSource(this, Uri.parse(ArUtil.DIGESTIVE_MODEL_FILE))
-                                    .setIsFilamentGltf(true)
-                                    .build();
-                            break;
-
-                        default:
-                            Log.d(TAG, "onUpdate: image detected does not match any image id. how?");
-                            break;
+                    // get the 3d model's .glb file uri from assets
+                    String modelUri = getModelAssetsFileForDetectedImage(image.getIndex());
+                    Log.d(TAG, "onUpdate: modelUri = "+modelUri);
+                    if(modelUri==null || modelUri.isEmpty()) {
+                        // 3d model not found for detected image
+                        showToast("Sorry, no 3D view to show for detected image");
+                        mArImageDetected = false;
+                        return;
                     }
 
-                    if(modelRenderableCompletableFuture==null) return;
+                    // init variables for showing AR model
+                    WeakReference<AugmentedImagesActivity> weakActivity = new WeakReference<>(this);
+                    CompletableFuture<ModelRenderable> modelRenderableCompletableFuture = ModelRenderable.builder()
+                            .setSource(this, Uri.parse(modelUri))
+                            .setIsFilamentGltf(true)
+                            .build();
 
                     modelRenderableCompletableFuture.thenAccept(model -> {
                         AugmentedImagesActivity activity = weakActivity.get();
@@ -270,7 +187,7 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                     }).exceptionally(throwable -> {
                         Log.d(TAG, "onUpdate: error while showing model: "+throwable.getMessage());
 
-                        showToast("Sorry, unable to show 3D model");
+                        showToast("Sorry, unable to show 3D model, please try again");
                         mArImageDetected = false;
                         return null;
                     });
@@ -281,6 +198,79 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
             Log.d(TAG, "onUpdate: error-> "+e.getMessage());
             mArImageDetected = false;
         }
+    }
+
+    /**
+     * get model asset file uri from assets based on detected image index
+     * @param detectedImageIndex index of detected image on the Ar image database
+     * @return path of the model saved in assets folder
+     */
+    private String getModelAssetsFileForDetectedImage(int detectedImageIndex) {
+        String modelUri = null;
+
+        switch (detectedImageIndex){
+
+            case ArUtil.SOLAR_SYSTEM_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Solar System figure detected");
+                modelUri = ArUtil.SOLAR_SYSTEM_MODEL_FILE;
+                break;
+
+            case ArUtil.VIRUS_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Virus figure detected");
+                modelUri = ArUtil.VIRUS_MODEL_FILE;
+                break;
+
+            case ArUtil.AMOEBA_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Amoeba figure detected");
+                break;
+
+            case ArUtil.ENTAMOEBA_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Entamoeba figure detected");
+                break;
+
+            case ArUtil.PLANT_CELL_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Plant Cell figure detected");
+                modelUri = ArUtil.PLANT_CELL_MODEL_FILE;
+                break;
+
+            case ArUtil.ANIMAL_CELL_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Animal Cell figure detected");
+                modelUri = ArUtil.ANIMAL_CELL_MODEL_FILE;
+                break;
+
+            case ArUtil.NUCLEUS_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Nucleus figure detected");
+                break;
+
+            case ArUtil.NEURON_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Neuron figure detected");
+                modelUri = ArUtil.NEURON_MODEL_FILE;
+                break;
+
+            case ArUtil.LUNG_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Lung figure detected");
+                modelUri = ArUtil.LUNG_MODEL_FILE;
+                break;
+
+            case ArUtil.DIGESTIVE_SYSTEM_IMG_ID:
+                Log.d(TAG, "getModelFileForDetectedImage: Digestive System figure detected");
+                modelUri = ArUtil.DIGESTIVE_MODEL_FILE;
+                break;
+
+            default:
+                Log.d(TAG, "getModelFileForDetectedImage: image detected does not match any image id. how?");
+                break;
+        }
+
+        return modelUri;
+    }
+
+    /**
+     * unexpected error occured finish the activity gracefully
+     */
+    private void finishGracefully() {
+        showToast("An unexpected event occurred, please try again.");
+        finish();
     }
 
     /**

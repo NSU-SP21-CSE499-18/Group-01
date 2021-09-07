@@ -113,5 +113,12 @@
     <string name="gn_title_hint" translatable="false">Select Your Class</string>
     <string name="gn_classes" translatable="false">Classes</string>
 
+    <string-array name="class_names">
+        <item>Class 6</item>
+        <item>Class 7</item>
+        <item>Class 8</item>
+        <item>Class 9</item>
+        <item>Class 10</item>
+    </string-array>
 
 </resources>

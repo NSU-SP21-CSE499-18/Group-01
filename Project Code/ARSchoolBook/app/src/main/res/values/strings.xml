@@ -108,4 +108,10 @@
         <item>@string/not_available</item>
     </string-array>
 
+    <!--    Figure Names -->
+    <string name="gen_title" translatable="false">AR Science Book</string>
+    <string name="gn_title_hint" translatable="false">Select Your Class</string>
+    <string name="gn_classes" translatable="false">Classes</string>
+
+
 </resources>

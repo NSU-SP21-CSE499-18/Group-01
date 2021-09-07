@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ClassSelectionActivity"></activity>
         <activity
             android:name=".activities.ViewSelectedArModelActivity"
             android:exported="true" />

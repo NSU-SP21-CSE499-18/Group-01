@@ -114,12 +114,18 @@
     <string name="gn_title_hint" translatable="false">Select Your Class</string>
     <string name="gn_classes" translatable="false">Classes</string>
 
+    <string name="cl_6">Class 6</string>
+    <string name="cl_7">Class 7</string>
+    <string name="cl_8">Class 8</string>
+    <string name="cl_9">Class 9</string>
+    <string name="cl_10">Class 10</string>
+
     <string-array name="class_names">
-        <item>Class 6</item>
-        <item>Class 7</item>
-        <item>Class 8</item>
-        <item>Class 9</item>
-        <item>Class 10</item>
+        <item>@string/cl_6</item>
+        <item>@string/cl_7</item>
+        <item>@string/cl_8</item>
+        <item>@string/cl_9</item>
+        <item>@string/cl_10</item>
     </string-array>
 
     <string-array name="chapter_numbers">

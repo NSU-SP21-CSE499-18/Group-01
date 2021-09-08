@@ -41,20 +41,20 @@
 
 
         <belka.us.androidtoggleswitch.widgets.ToggleSwitch
-            android:id="@+id/lng_switch"
+            android:id="@+id/lng_switch_ge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            custom:textToggleLeft="@string/lng_switch_en"
-            custom:textToggleRight="@string/lng_switch_bn"
-            custom:inactiveBgColor="#FFF"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/custom_lng_button_stroke"
+            android:padding="1dp"
+            android:textSize="9.5sp"
             custom:activeBgColor="@color/titleColor"
             custom:cornerRadius="@dimen/_20sdp"
-            android:textSize="9.5sp"
-            android:background="@drawable/custom_lng_button_stroke"
+            custom:inactiveBgColor="#FFF"
+            custom:textToggleLeft="@string/lng_switch_en"
+            custom:textToggleRight="@string/lng_switch_bn"
             custom:toggleWidth="@dimen/_34sdp"
-            tools:ignore="SmallSp"
-            android:padding="1dp"
-            android:layout_alignParentEnd="true"/>
+            tools:ignore="SmallSp" />
     </RelativeLayout>
 
     <TextView

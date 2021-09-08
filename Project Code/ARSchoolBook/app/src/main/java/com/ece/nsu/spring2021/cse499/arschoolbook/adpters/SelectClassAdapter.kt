@@ -30,9 +30,9 @@ class SelectClassAdapter(private val mList: Array<String>, private val context: 
         holder.layout.setOnClickListener {
 
             val intent = Intent(context, SelectFigureActivity::class.java)
-            intent.putExtra("SelectedClass", holder.textView.text.toString().toLowerCase())
+            intent.putExtra("SelectedClass", holder.textView.text.toString())
             context.startActivity(intent)
-            Toast.makeText(context, holder.textView.text.toString().toLowerCase(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

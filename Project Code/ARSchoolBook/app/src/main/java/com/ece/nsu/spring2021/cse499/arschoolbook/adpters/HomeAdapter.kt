@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.activities.ContentActivity
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.GeContentActivity
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.GeHomeActivity
 
 class HomeAdapter(private val chapterNumbers: Array<String>,private val chapterNames: Array<String>,
                   private val context: Context) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
@@ -29,6 +31,9 @@ class HomeAdapter(private val chapterNumbers: Array<String>,private val chapterN
         holder.layout.setOnClickListener {
 
             //Start intent here.......
+            val intent = Intent(context, GeContentActivity::class.java)
+            intent.putExtra("SelectedChapter",position )
+            context.startActivity(intent)
 
             Toast.makeText(context, holder.chapterName.text, Toast.LENGTH_SHORT).show()
         }

@@ -33,7 +33,7 @@ class SelectClassAdapter(private val mList: Array<String>, private val context: 
             val intent = Intent(context, GeHomeActivity::class.java)
             intent.putExtra("SelectedClass", holder.textView.text.toString())
             context.startActivity(intent)
-            Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

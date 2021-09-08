@@ -14,6 +14,7 @@
         android:layout_weight="2"
         android:layout_marginBottom="@dimen/_5sdp">
         <TextView
+            android:id="@+id/chapterNumber_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ch_no_1"
@@ -22,6 +23,7 @@
             android:textSize="18sp"
             android:layout_marginBottom="@dimen/_3sdp" />
         <TextView
+            android:id="@+id/chapterName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ch_name_1"

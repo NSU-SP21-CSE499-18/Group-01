@@ -30,7 +30,7 @@
                 android:textColor="@color/titleColor"
                 android:textSize="@dimen/_22sdp"/>
             <TextView
-                android:id="@+id/className"
+                android:id="@+id/className_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/book_caption"

@@ -1,5 +1,6 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
@@ -53,7 +54,7 @@ class GeHomeActivity : AppCompatActivity() {
     {
         classNameTV = findViewById(R.id.className_home)
         SELECTED_CLASS = intent.getStringExtra("SelectedClass").toString()
-        classNameTV.text = SELECTED_CLASS
+        setClassNameTitle(SELECTED_CLASS)
         chapterNames = getChapterNamesFromSelectedClass(SELECTED_CLASS)
         chapterNumbers = resources.getStringArray(R.array.chapter_numbers)
 
@@ -72,6 +73,29 @@ class GeHomeActivity : AppCompatActivity() {
         }
     }
 
+    fun setClassNameTitle(className: String)
+    {
+        if (className=="Class 6" || className=="ষষ্ঠ শ্রেণী")
+        {
+            classNameTV.text = resources.getString(R.string.cl_6).toString()
+        }
+        else if(className=="Class 7" || className=="সপ্তম শ্রেণি")
+        {
+            classNameTV.text = resources.getString(R.string.cl_7).toString()
+        }
+        else if(className=="Class 8" || className=="অষ্ঠম শ্রেণ")
+        {
+            classNameTV.text = resources.getString(R.string.cl_8).toString()
+        }
+        else if(className=="Class 9" || className=="নবম শ্রেণী")
+        {
+            classNameTV.text = resources.getString(R.string.cl_9).toString()
+        }
+        else
+        {
+            classNameTV.text = resources.getString(R.string.cl_10).toString()
+        }
+    }
     private fun setLocale(activity: Activity, languageCode: String? ) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
@@ -86,6 +110,7 @@ class GeHomeActivity : AppCompatActivity() {
         setLocale(this,lang)
         val intent = Intent(this, GeHomeActivity::class.java)
         intent.putExtra("lng",lang)
+        intent.putExtra("SelectedClass",SELECTED_CLASS)
         finish()
         startActivity(intent)
         overridePendingTransition(0, 0)

@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".activities.GeContentActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.GeHomeActivity"
             android:exported="true" />
         <activity

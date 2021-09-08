@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.GeHomeActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.activities.SelectFigureActivity
 
 //Add callback function
@@ -29,7 +30,7 @@ class SelectClassAdapter(private val mList: Array<String>, private val context: 
         //Replace it with callbacks
         holder.layout.setOnClickListener {
 
-            val intent = Intent(context, SelectFigureActivity::class.java)
+            val intent = Intent(context, GeHomeActivity::class.java)
             intent.putExtra("SelectedClass", holder.textView.text.toString())
             context.startActivity(intent)
             Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()

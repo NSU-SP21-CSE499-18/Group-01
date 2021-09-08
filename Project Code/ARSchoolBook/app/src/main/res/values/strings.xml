@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AR School Book</string>
+    <string name="app_name_gen" translatable="false">Gen Book</string>
     <!--    Book Index (en)-->
     <string name="ch_title">Chapters</string>
     <string name="ch_no_1">Chapter 1</string>

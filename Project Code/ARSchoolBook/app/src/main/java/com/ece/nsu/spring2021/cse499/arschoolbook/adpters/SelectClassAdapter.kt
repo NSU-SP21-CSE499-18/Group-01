@@ -44,4 +44,6 @@ class SelectClassAdapter(private val mList: Array<String>, private val context: 
         val textView: TextView = itemView.findViewById(R.id.className)
         val layout: LinearLayout = itemView.findViewById(R.id.class_layout)
     }
+
+
 }

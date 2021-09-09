@@ -20,4 +20,8 @@ class ClassSelectionActivity : AppCompatActivity() {
         val adapter = SelectClassAdapter(data, this)
         recyclerview.adapter = adapter
     }
+
+    override fun onBackPressed() {
+        moveTaskToBack(true)
+    }
 }

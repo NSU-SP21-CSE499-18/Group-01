@@ -63,6 +63,7 @@ class GeContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        slideInRightOutLeft()
         setContentView(R.layout.activity_content)
         init()
     }

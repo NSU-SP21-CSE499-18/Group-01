@@ -24,6 +24,7 @@ class GeHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        slideInRightOutLeft()
         setContentView(R.layout.activity_ge_home)
         val toggleSwitch : ToggleSwitch = findViewById(R.id.lng_switch_ge)
         val bundle: Bundle? = intent.extras
@@ -114,6 +115,9 @@ class GeHomeActivity : AppCompatActivity() {
         finish()
         startActivity(intent)
         overridePendingTransition(0, 0)
+    }
+    private fun slideInRightOutLeft() {
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
 }

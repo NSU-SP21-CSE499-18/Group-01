@@ -70,6 +70,7 @@ object ResourceFetcherUtil {
         return dbPath
     }
 
+    @JvmStatic
     fun getModelUrlBasedOnFigureName(figureName: String, context: Context): String? {
 
         when(figureName){

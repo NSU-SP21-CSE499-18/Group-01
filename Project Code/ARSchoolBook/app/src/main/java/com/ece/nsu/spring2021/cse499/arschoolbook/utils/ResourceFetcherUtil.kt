@@ -182,4 +182,34 @@ object ResourceFetcherUtil {
         }
         return modelUri
     }
+
+    @JvmStatic
+    fun getModelUriFromFigureName(figureName: String, context: Context): String? {
+        var modelUriPath: String? = null
+
+        when(figureName){
+
+            context.getString(R.string.fig_no_1_1) -> modelUriPath = ArUtil.VIRUS_MODEL_FILE
+
+            context.getString(R.string.fig_no_1_6) -> modelUriPath = null
+
+            context.getString(R.string.fig_no_1_7) -> modelUriPath = null
+
+            context.getString(R.string.fig_no_2_1a) -> modelUriPath = ArUtil.PLANT_CELL_MODEL_FILE
+
+            context.getString(R.string.fig_no_2_1b) -> modelUriPath = ArUtil.ANIMAL_CELL_MODEL_FILE
+
+            context.getString(R.string.fig_no_2_3) -> modelUriPath = null
+
+            context.getString(R.string.fig_no_2_6) -> modelUriPath = ArUtil.NEURON_MODEL_FILE
+
+            context.getString(R.string.fig_no_4_3) -> modelUriPath = ArUtil.LUNG_MODEL_FILE
+
+            context.getString(R.string.fig_no_5_1) -> modelUriPath = ArUtil.DIGESTIVE_MODEL_FILE
+
+            context.getString(R.string.fig_no_12_1) -> modelUriPath = ArUtil.SOLAR_SYSTEM_MODEL_FILE
+        }
+
+        return modelUriPath
+    }
 }

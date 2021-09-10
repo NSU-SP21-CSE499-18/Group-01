@@ -85,6 +85,12 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
 
         String modelUrl = ResourceFetcherUtil.getModelUrlBasedOnFigureName(mFigureName, this);
 
+        if(modelUrl == null || modelUrl.isEmpty()){
+            showToast("Sorry, model not available");
+            finish();
+            return;
+        }
+
         Intent sceneViewerIntent = new Intent(Intent.ACTION_VIEW);
         Uri intentUri =
                 Uri.parse("https://arvr.google.com/scene-viewer/1.0").buildUpon()
@@ -107,56 +113,10 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
         // hide plane indicating dots
         mArFragment.getArSceneView().getPlaneRenderer().setVisible(false);
 
-        String modelUriPath;
+        String modelUriPath = ResourceFetcherUtil.getModelUriFromFigureName(mFigureName, this);
 
-        if (mFigureName.equals(getString(R.string.fig_no_1_1))) {
-            modelUriPath = ArUtil.VIRUS_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_1_6))) {
+        if(modelUriPath==null || modelUriPath.isEmpty()){
             showToast("Sorry, model not available");
-            finish();
-            return;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_1_7))) {
-            showToast("Sorry, model not available");
-            finish();
-            return;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_2_1a))) {
-            modelUriPath = ArUtil.PLANT_CELL_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_2_1b))) {
-            modelUriPath = ArUtil.ANIMAL_CELL_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_2_3))) {
-            showToast("Sorry, model not available");
-            finish();
-            return;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_2_6))) {
-            modelUriPath = ArUtil.NEURON_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_4_3))) {
-            modelUriPath = ArUtil.LUNG_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_5_1))) {
-            modelUriPath = ArUtil.DIGESTIVE_MODEL_FILE;
-        }
-
-        else if(mFigureName.equals(getString(R.string.fig_no_12_1))) {
-            modelUriPath = ArUtil.SOLAR_SYSTEM_MODEL_FILE;
-        }
-
-        else {
-            Log.d(TAG, "showArModel: invalid figure name");
             finish();
             return;
         }

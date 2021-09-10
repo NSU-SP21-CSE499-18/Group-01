@@ -12,6 +12,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ece.nsu.spring2021.cse499.arschoolbook.R;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.AlertDialogUtil;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.AugmentedImageDatabase;
 import com.google.ar.core.Config;
@@ -55,6 +56,8 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
 
     private void init(Bundle savedInstanceState) {
 
+        showArImageExplanationDialog();
+
         getSupportFragmentManager().addFragmentOnAttachListener(this);
 
         if (savedInstanceState == null) {
@@ -66,6 +69,15 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
             }
             else Toast.makeText(this, "Your device does not support AR", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showArImageExplanationDialog() {
+        AlertDialogUtil.showAlertDialogWithSingleButtons(this,
+                getString(R.string.ar_image_dialog_title),
+                getString(R.string.ar_image_dialog_message),
+                getString(R.string.ar_dialog_ok), () -> {
+                    // do nothing
+                });
     }
 
     @Override

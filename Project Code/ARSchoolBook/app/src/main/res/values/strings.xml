@@ -114,6 +114,8 @@
     <string name="ar_dialog_message">Point your camera to a flat surface. When you see white dots appearing tap on the those dots. if the white dots are not appearing try moving your phone as shown, or point to another flat surface.</string>
     <string name="ar_dialog_ok">OK</string>
     <string name="ar_dialog_show3d_instead">See 3D view instead</string>
+    <string name="ar_image_dialog_title">How to scan figure image?</string>
+    <string name="ar_image_dialog_message">Point your camera to a figure in your book and the AR model should appear. If AR model does not appear, move your phone around and zoom in to the figure image.</string>
 
     <!--    Extra resources for the new version -->
     <string name="gen_title" translatable="false">AR Science Book</string>

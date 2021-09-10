@@ -1,4 +1,4 @@
-package com.ece.nsu.spring2021.cse499.arschoolbook.activities
+package com.ece.nsu.spring2021.cse499.arschoolbook.activities.old
 
 import android.content.Intent
 import android.content.Context
@@ -18,6 +18,7 @@ import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.SelectFigureActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
 import com.google.android.material.textfield.TextInputEditText

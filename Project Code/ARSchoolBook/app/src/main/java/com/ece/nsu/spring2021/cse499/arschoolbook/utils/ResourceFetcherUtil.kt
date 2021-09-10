@@ -1,7 +1,9 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.utils
 
 import android.content.Context
+import android.util.Log
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
+import com.ece.nsu.spring2021.cse499.arschoolbook.activities.AugmentedImagesActivity
 
 object ResourceFetcherUtil {
 
@@ -147,5 +149,37 @@ object ResourceFetcherUtil {
         // todo: handle other classes
 
         return emptyArray()
+    }
+
+    /**
+     * get model asset file uri from assets based on detected image index
+     * @param detectedImageIndex index of detected image on the Ar image database
+     * @return path of the model saved in assets folder
+     */
+    @JvmStatic
+    fun getModelAssetsFileForDetectedImageIndex(detectedImageIndex: Int): String? {
+        var modelUri: String? = null
+        when (detectedImageIndex) {
+            ArUtil.SOLAR_SYSTEM_IMG_ID -> modelUri = ArUtil.SOLAR_SYSTEM_MODEL_FILE
+
+            ArUtil.VIRUS_IMG_ID -> modelUri = ArUtil.VIRUS_MODEL_FILE
+
+            ArUtil.AMOEBA_IMG_ID -> modelUri = null
+
+            ArUtil.ENTAMOEBA_IMG_ID -> modelUri = null
+
+            ArUtil.PLANT_CELL_IMG_ID -> modelUri = ArUtil.PLANT_CELL_MODEL_FILE
+
+            ArUtil.ANIMAL_CELL_IMG_ID -> modelUri = ArUtil.ANIMAL_CELL_MODEL_FILE
+
+            ArUtil.NUCLEUS_IMG_ID -> modelUri = null
+
+            ArUtil.NEURON_IMG_ID -> modelUri = ArUtil.NEURON_MODEL_FILE
+
+            ArUtil.LUNG_IMG_ID -> modelUri = ArUtil.LUNG_MODEL_FILE
+
+            ArUtil.DIGESTIVE_SYSTEM_IMG_ID -> modelUri = ArUtil.DIGESTIVE_MODEL_FILE
+        }
+        return modelUri
     }
 }

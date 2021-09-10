@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.ece.nsu.spring2021.cse499.arschoolbook.R;
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.AlertDialogUtil;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.AugmentedImageDatabase;
 import com.google.ar.core.Config;
@@ -146,7 +147,7 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
                     mArImageDetected = true;
 
                     // get the 3d model's .glb file uri from assets
-                    String modelUri = getModelAssetsFileForDetectedImage(image.getIndex());
+                    String modelUri = ResourceFetcherUtil.getModelAssetsFileForDetectedImageIndex(image.getIndex());
                     Log.d(TAG, "onUpdate: modelUri = "+modelUri);
                     if(modelUri==null || modelUri.isEmpty()) {
                         // 3d model not found for detected image
@@ -210,71 +211,6 @@ public class AugmentedImagesActivity extends AppCompatActivity implements
             Log.d(TAG, "onUpdate: error-> "+e.getMessage());
             mArImageDetected = false;
         }
-    }
-
-    /**
-     * get model asset file uri from assets based on detected image index
-     * @param detectedImageIndex index of detected image on the Ar image database
-     * @return path of the model saved in assets folder
-     */
-    private String getModelAssetsFileForDetectedImage(int detectedImageIndex) {
-        String modelUri = null;
-
-        switch (detectedImageIndex){
-
-            case ArUtil.SOLAR_SYSTEM_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Solar System figure detected");
-                modelUri = ArUtil.SOLAR_SYSTEM_MODEL_FILE;
-                break;
-
-            case ArUtil.VIRUS_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Virus figure detected");
-                modelUri = ArUtil.VIRUS_MODEL_FILE;
-                break;
-
-            case ArUtil.AMOEBA_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Amoeba figure detected");
-                break;
-
-            case ArUtil.ENTAMOEBA_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Entamoeba figure detected");
-                break;
-
-            case ArUtil.PLANT_CELL_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Plant Cell figure detected");
-                modelUri = ArUtil.PLANT_CELL_MODEL_FILE;
-                break;
-
-            case ArUtil.ANIMAL_CELL_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Animal Cell figure detected");
-                modelUri = ArUtil.ANIMAL_CELL_MODEL_FILE;
-                break;
-
-            case ArUtil.NUCLEUS_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Nucleus figure detected");
-                break;
-
-            case ArUtil.NEURON_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Neuron figure detected");
-                modelUri = ArUtil.NEURON_MODEL_FILE;
-                break;
-
-            case ArUtil.LUNG_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Lung figure detected");
-                modelUri = ArUtil.LUNG_MODEL_FILE;
-                break;
-
-            case ArUtil.DIGESTIVE_SYSTEM_IMG_ID:
-                Log.d(TAG, "getModelFileForDetectedImage: Digestive System figure detected");
-                modelUri = ArUtil.DIGESTIVE_MODEL_FILE;
-                break;
-
-            default:
-                Log.d(TAG, "getModelFileForDetectedImage: image detected does not match any image id. how?");
-                break;
-        }
-
-        return modelUri;
     }
 
     /**

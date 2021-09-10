@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.activities.GeHomeActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.activities.SelectFigureActivity
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.sharedPreferences.UserChoiceSharedPref
 
 //Add callback function
 class SelectClassAdapter(private val mList: Array<String>, private val context: Context) : RecyclerView.Adapter<SelectClassAdapter.ViewHolder>() {
@@ -25,15 +26,19 @@ class SelectClassAdapter(private val mList: Array<String>, private val context: 
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = mList[position]
+        val className = mList[position]
+        holder.textView.text = className
 
         //Replace it with callbacks
         holder.layout.setOnClickListener {
 
             val intent = Intent(context, GeHomeActivity::class.java)
-            intent.putExtra("SelectedClass", holder.textView.text.toString())
+            intent.putExtra("SelectedClass", className)
             context.startActivity(intent)
-            //Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
+
+            // save selected className to sharedPreferences
+            UserChoiceSharedPref.build(context).setSelectedClassName(className)
+
         }
     }
 

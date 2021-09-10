@@ -14,6 +14,7 @@ import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.sharedPreferences.UserChoiceSharedPref
 import com.google.ar.core.ArCoreApk
 
 class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigureAdapterCallback {
@@ -55,9 +56,13 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
         //Recycler View
         recyclerview.layoutManager = LinearLayoutManager(this)
 
-        // todo: get className using SharedPreferences
+        val userSelectedClassName = UserChoiceSharedPref.build(this)
+            .getSelectedClassName(getString(R.string.cl_7))
+
+        Log.d(TAG, "init: user selected class = "+userSelectedClassName)
+
         data = ResourceFetcherUtil.getFigureNameListFromSelectedClassAndChapter(
-            className = getString(R.string.cl_7), chapterNo = chapterNo, this)
+            className = userSelectedClassName, chapterNo = chapterNo, this)
 
         val adapter = SelectFigureAdapter(data, this)
         recyclerview.adapter = adapter

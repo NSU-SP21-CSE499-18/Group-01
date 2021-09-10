@@ -1,6 +1,5 @@
 package com.ece.nsu.spring2021.cse499.arschoolbook.activities
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
@@ -13,14 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import belka.us.androidtoggleswitch.widgets.ToggleSwitch
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.HomeAdapter
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil
 import java.util.*
 
 
 class GeHomeActivity : AppCompatActivity() {
+    private val TAG: String = "GHA-debug"
     lateinit var chapterNumbers: Array<String>
     lateinit var chapterNames: Array<String>
     lateinit var SELECTED_CLASS: String
     lateinit var classNameTV: TextView
+
+    var CURRENT_SELECTED_LANGUAGE = "en"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,21 +34,17 @@ class GeHomeActivity : AppCompatActivity() {
         val language = bundle?.get("lng")
 
         if(language!=null)
-        { if(language == "bn")
-            { toggleSwitch.checkedTogglePosition = 1 }
-            else
-            { toggleSwitch.checkedTogglePosition = 0 }
+        {
+            if(language == "bn") toggleSwitch.checkedTogglePosition = 1
+            else toggleSwitch.checkedTogglePosition = 0
+
+            CURRENT_SELECTED_LANGUAGE = language.toString()
         }
 
 
         toggleSwitch.setOnToggleSwitchChangeListener { position, isChecked ->
-            if(position==1)
-            {
-                setLang("bn")
-            }
-            else {
-                setLang("en")
-            }
+            if(position==1) setLang("bn")
+            else setLang("en")
         }
 
         init()
@@ -55,8 +54,8 @@ class GeHomeActivity : AppCompatActivity() {
     {
         classNameTV = findViewById(R.id.className_home)
         SELECTED_CLASS = intent.getStringExtra("SelectedClass").toString()
-        setClassNameTitle(SELECTED_CLASS)
-        chapterNames = getChapterNamesFromSelectedClass(SELECTED_CLASS)
+        classNameTV.text = ResourceFetcherUtil.getClassNameTitle(SELECTED_CLASS, this)
+        chapterNames = ResourceFetcherUtil.getChapterNamesFromSelectedClass(SELECTED_CLASS, this)
         chapterNumbers = resources.getStringArray(R.array.chapter_numbers)
 
         val recyclerview = findViewById<RecyclerView>(R.id.recycler_view_chapters)
@@ -64,39 +63,7 @@ class GeHomeActivity : AppCompatActivity() {
         val adapter = HomeAdapter(chapterNumbers,chapterNames,this)
         recyclerview.adapter = adapter
     }
-    private fun getChapterNamesFromSelectedClass(className: String): Array<String> {
 
-        return when (className) {
-            "Class 7" -> {
-                resources.getStringArray(R.array.chapter_names_c7)
-            }
-            else -> emptyArray()
-        }
-    }
-
-    fun setClassNameTitle(className: String)
-    {
-        if (className=="Class 6" || className=="ষষ্ঠ শ্রেণী")
-        {
-            classNameTV.text = resources.getString(R.string.cl_6).toString()
-        }
-        else if(className=="Class 7" || className=="সপ্তম শ্রেণি")
-        {
-            classNameTV.text = resources.getString(R.string.cl_7).toString()
-        }
-        else if(className=="Class 8" || className=="অষ্ঠম শ্রেণ")
-        {
-            classNameTV.text = resources.getString(R.string.cl_8).toString()
-        }
-        else if(className=="Class 9" || className=="নবম শ্রেণী")
-        {
-            classNameTV.text = resources.getString(R.string.cl_9).toString()
-        }
-        else
-        {
-            classNameTV.text = resources.getString(R.string.cl_10).toString()
-        }
-    }
     private fun setLocale(activity: Activity, languageCode: String? ) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
@@ -108,6 +75,9 @@ class GeHomeActivity : AppCompatActivity() {
 
     private fun setLang(lang: String?)
     {
+        // do nothing if selected language is unchanged
+        if(lang == CURRENT_SELECTED_LANGUAGE) return
+
         setLocale(this,lang)
         val intent = Intent(this, GeHomeActivity::class.java)
         intent.putExtra("lng",lang)
@@ -116,6 +86,7 @@ class GeHomeActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(0, 0)
     }
+
     private fun slideInRightOutLeft() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }

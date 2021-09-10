@@ -19,7 +19,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
-import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
@@ -215,8 +214,8 @@ class GeContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         firebaseDb = FirebaseDatabase.getInstance().reference
 
         // todo: handle class selection using SharedPreferences
-        var dbPath = ResourceFetcherUtil.getDbPathForChapterAndClass(chapterNo = chapterNo,
-            selectedClass = resources.getString(R.string.cl_7), this)
+        var dbPath = ResourceFetcherUtil.getDbPathForChapterAndClass(className = resources.getString(R.string.cl_7),
+            chapterNo = chapterNo, this)
 
         firebaseDb.child(dbPath).get().addOnSuccessListener {
             for(snap in it.children) {

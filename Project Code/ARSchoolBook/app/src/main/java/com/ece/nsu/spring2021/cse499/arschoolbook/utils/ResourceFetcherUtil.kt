@@ -44,7 +44,7 @@ object ResourceFetcherUtil {
 
         var dbPath = ""
 
-        if(className == context.resources.getString(R.string.cl_7)) {
+        if(className=="Class 7" || className=="সপ্তম শ্রেণি") {
             dbPath = NosqlDbPathUtils.CLASS_7_BOOK_NODE + "/"
             when(chapterNo){
                 context.getString(R.string.ch_no_1) -> dbPath += NosqlDbPathUtils.CHAPTER_1_NODE + "/"
@@ -95,7 +95,7 @@ object ResourceFetcherUtil {
     fun getFigureNameListFromSelectedClassAndChapter(className: String, chapterNo: String,
                                                      context: Context): Array<String> {
 
-        if(className == context.resources.getString(R.string.cl_7)) {
+        if(className=="Class 7" || className=="সপ্তম শ্রেণি") {
             when (chapterNo) {
                 "Chapter 1","অধ্যায় ১" -> {
                     return context.resources.getStringArray(R.array.fig_ch_1)

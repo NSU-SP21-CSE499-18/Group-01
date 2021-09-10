@@ -27,6 +27,23 @@ object AlertDialogUtil {
         dialog.show()
     }
 
+    @JvmStatic
+    fun showAlertDialogWithSingleButtons(context: Context, title: String = "", message: String,
+                                      buttonLabel: String, buttonCallback: Callback)
+    {
+        val dialog = AlertDialog.Builder(context)
+            .setCancelable(true)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(buttonLabel) { dialog, which ->
+                buttonCallback.onClick()
+                dialog.dismiss()
+            }
+            .create()
+
+        dialog.show()
+    }
+
     interface Callback{
         fun onClick()
     }

@@ -39,12 +39,12 @@ object ResourceFetcherUtil {
         }
     }
 
-    fun getDbPathForChapterAndClass(chapterNo: String, selectedClass: String, context: Context)
+    fun getDbPathForChapterAndClass(className: String, chapterNo: String, context: Context)
     : String {
 
         var dbPath = ""
 
-        if(selectedClass == context.resources.getString(R.string.cl_7)) {
+        if(className == context.resources.getString(R.string.cl_7)) {
             dbPath = NosqlDbPathUtils.CLASS_7_BOOK_NODE + "/"
             when(chapterNo){
                 context.getString(R.string.ch_no_1) -> dbPath += NosqlDbPathUtils.CHAPTER_1_NODE + "/"
@@ -65,6 +65,86 @@ object ResourceFetcherUtil {
             dbPath += NosqlDbPathUtils.YOUTUBE_VIDEOS_NODE + "/"
         }
 
+        // todo: handle other classes
+
         return dbPath
+    }
+
+    fun getModelUrlBasedOnFigureName(figureName: String, context: Context): String? {
+
+        when(figureName){
+
+            context.getString(R.string.fig_no_1_1) -> return ArUtil.VIRUS_MODEL_URL
+
+            context.getString(R.string.fig_no_2_1a) -> return ArUtil.PLANT_CELL_MODEL_URL
+
+            context.getString(R.string.fig_no_2_1b) -> return ArUtil.ANIMAL_CELL_MODEL_URL
+
+            context.getString(R.string.fig_no_2_6) -> return ArUtil.NEURON_MODEL_URL
+
+            context.getString(R.string.fig_no_4_3) -> return ArUtil.LUNG_MODEL_URL
+
+            context.getString(R.string.fig_no_5_1) -> return ArUtil.DIGESTIVE_MODEL_URL
+
+            context.getString(R.string.fig_no_12_1) -> return ArUtil.SOLAR_SYSTEM_MODEL_URL
+        }
+
+        return null
+    }
+
+    fun getFigureNameListFromSelectedClassAndChapter(className: String, chapterNo: String,
+                                                     context: Context): Array<String> {
+
+        if(className == context.resources.getString(R.string.cl_7)) {
+            when (chapterNo) {
+                "Chapter 1","অধ্যায় ১" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_1)
+                }
+                "Chapter 2","অধ্যায় ২" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_2)
+                }
+                "Chapter 3","অধ্যায় ৩" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_3)
+                }
+                "Chapter 4","অধ্যায় ৪" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_4)
+                }
+                "Chapter 5", "অধ্যায় ৫" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_5)
+                }
+                "Chapter 6", "অধ্যায় ৬" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_6)
+                }
+                "Chapter 7","অধ্যায় ৭" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_7)
+                }
+                "Chapter 8","অধ্যায় ৮" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_8)
+                }
+                "Chapter 9","অধ্যায় ৯" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_9)
+                }
+                "Chapter 10","অধ্যায় ১০" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_10)
+                }
+                "Chapter 11","অধ্যায় ১১" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_11)
+                }
+                "Chapter 12", "অধ্যায় ১২" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_12)
+                }
+                "Chapter 13", "অধ্যায় ১৩" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_13)
+                }
+                "Chapter 14", "অধ্যায় ১৪" -> {
+                    return context.resources.getStringArray(R.array.fig_ch_14)
+                }
+                else -> return emptyArray()
+            }
+        }
+
+        // todo: handle other classes
+
+        return emptyArray()
     }
 }

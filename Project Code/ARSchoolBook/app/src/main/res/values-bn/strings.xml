@@ -102,7 +102,11 @@
     </string-array>
 
 
-
+    <!-- For Alert Dialogs -->
+    <string name="ar_dialog_title">How to view AR?</string>
+    <string name="ar_dialog_message">Point your camera to a flat surface. When you see white dots appearing tap on the those dots. if the white dots are not appearing try moving your phone as shown, or point to another flat surface.</string>
+    <string name="ar_dialog_ok">OK</string>
+    <string name="ar_dialog_show3d_instead">See 3D view instead</string>
 
     <!--    Extra resources for the new version -->
     <string name="cl_6">ষষ্ঠ শ্রেণী</string>

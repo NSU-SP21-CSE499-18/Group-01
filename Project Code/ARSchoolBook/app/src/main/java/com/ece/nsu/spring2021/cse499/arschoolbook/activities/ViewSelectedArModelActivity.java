@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentOnAttachListener;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.ece.nsu.spring2021.cse499.arschoolbook.R;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.AlertDialogUtil;
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil;
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil;
 import com.google.ar.core.HitResult;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Sceneform;
@@ -44,6 +47,8 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
 
     private void init(Bundle savedInstanceState){
 
+        showArUiExplanation();
+
         mFigureName = getIntent().getStringExtra("Figure-Name");
         Log.d(TAG, "init: figure name from intent = "+mFigureName);
 
@@ -64,6 +69,34 @@ public class ViewSelectedArModelActivity extends AppCompatActivity implements Fr
             }
             else showToast("Your device does not support AR");
         }
+    }
+
+    private void showArUiExplanation() {
+        AlertDialogUtil.showAlertDialogWithTwoButtons(this,
+                getString(R.string.ar_dialog_title),
+                getString(R.string.ar_dialog_message),
+                getString(R.string.ar_dialog_ok), () -> {
+                    // do nothing
+                },
+                getString(R.string.ar_dialog_show3d_instead), ViewSelectedArModelActivity.this::showIn3dViewInstead);
+    }
+
+    private void showIn3dViewInstead(){
+
+        String modelUrl = ResourceFetcherUtil.getModelUrlBasedOnFigureName(mFigureName, this);
+
+        Intent sceneViewerIntent = new Intent(Intent.ACTION_VIEW);
+        Uri intentUri =
+                Uri.parse("https://arvr.google.com/scene-viewer/1.0").buildUpon()
+                        .appendQueryParameter("file", modelUrl)
+                        .appendQueryParameter("mode", "3d_only")
+                        .build();
+        sceneViewerIntent.setData(intentUri);
+        sceneViewerIntent.setPackage("com.google.ar.core");
+        startActivity(sceneViewerIntent);
+
+        // don't show this activity on back button press
+        finish();
     }
 
     private void showArModel(HitResult hitResult) {

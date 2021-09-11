@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AR School Book</string>
+    <string name="app_name_gen" translatable="false">Gen Book</string>
     <!--    Book Index (en)-->
     <string name="ch_title">Chapters</string>
     <string name="ch_no_1">Chapter 1</string>
@@ -106,6 +107,67 @@
     </string-array>
     <string-array name="fig_ch_14">
         <item>@string/not_available</item>
+    </string-array>
+
+    <!-- For Alert Dialogs -->
+    <string name="ar_dialog_title">How to view AR?</string>
+    <string name="ar_dialog_message">Point your camera to a flat surface. When you see white dots appearing tap on the those dots. if the white dots are not appearing try moving your phone as shown, or point to another flat surface.</string>
+    <string name="ar_dialog_ok">OK</string>
+    <string name="ar_dialog_show3d_instead">See 3D view instead</string>
+    <string name="ar_image_dialog_title">How to scan figure image?</string>
+    <string name="ar_image_dialog_message">Point your camera to a figure in your book and the AR model should appear. If AR model does not appear, move your phone around and zoom in to the figure image.</string>
+
+    <!--    Extra resources for the new version -->
+    <string name="gen_title" translatable="false">AR Science Book</string>
+    <string name="gn_title_hint" translatable="false">Select Your Class</string>
+    <string name="gn_classes" translatable="false">Classes</string>
+
+    <string name="cl_6">Class 6</string>
+    <string name="cl_7">Class 7</string>
+    <string name="cl_8">Class 8</string>
+    <string name="cl_9">Class 9</string>
+    <string name="cl_10">Class 10</string>
+
+    <string-array name="class_names">
+        <item>@string/cl_6</item>
+        <item>@string/cl_7</item>
+        <item>@string/cl_8</item>
+        <item>@string/cl_9</item>
+        <item>@string/cl_10</item>
+    </string-array>
+
+    <string-array name="chapter_numbers">
+        <item> @string/ch_no_1</item>
+        <item> @string/ch_no_2</item>
+        <item> @string/ch_no_3</item>
+        <item> @string/ch_no_4</item>
+        <item> @string/ch_no_5</item>
+        <item> @string/ch_no_6</item>
+        <item> @string/ch_no_7</item>
+        <item> @string/ch_no_8</item>
+        <item> @string/ch_no_9</item>
+        <item> @string/ch_no_10</item>
+        <item> @string/ch_no_11</item>
+        <item> @string/ch_no_12</item>
+        <item> @string/ch_no_13</item>
+        <item> @string/ch_no_14</item>
+    </string-array>
+
+    <string-array name="chapter_names_c7">
+        <item> @string/ch_name_1</item>
+        <item> @string/ch_name_2</item>
+        <item> @string/ch_name_3</item>
+        <item> @string/ch_name_4</item>
+        <item> @string/ch_name_5</item>
+        <item> @string/ch_name_6</item>
+        <item> @string/ch_name_7</item>
+        <item> @string/ch_name_8</item>
+        <item> @string/ch_name_9</item>
+        <item> @string/ch_name_10</item>
+        <item> @string/ch_name_11</item>
+        <item> @string/ch_name_12</item>
+        <item> @string/ch_name_13</item>
+        <item> @string/ch_name_14</item>
     </string-array>
 
 </resources>

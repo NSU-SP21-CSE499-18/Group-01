@@ -16,18 +16,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".activities.GeContentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.GeHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ClassSelectionActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".activities.ViewSelectedArModelActivity"
             android:exported="true" />
         <activity
             android:name=".activities.AugmentedImagesActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ContentActivity"
+            android:name=".activities.old.ContentActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.old.HomeActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity

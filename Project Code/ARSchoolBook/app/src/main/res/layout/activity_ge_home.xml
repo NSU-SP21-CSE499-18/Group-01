@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/_13sdp"
+    android:elevation="@dimen/_15sdp"
+    android:background="@drawable/custom_layout_background"
+    tools:context=".activities.old.HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_18sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_title"
+                android:fontFamily="@font/seguisb"
+                android:textColor="@color/titleColor"
+                android:textSize="@dimen/_22sdp"/>
+            <TextView
+                android:id="@+id/className_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_caption"
+                android:fontFamily="@font/segoeui"
+                android:textColor="@color/titleColor"
+                android:textSize="@dimen/_19sdp"/>
+        </LinearLayout>
+
+
+        <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+            android:id="@+id/lng_switch_ge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/custom_lng_button_stroke"
+            android:padding="1dp"
+            android:textSize="9.5sp"
+            custom:activeBgColor="@color/titleColor"
+            custom:cornerRadius="@dimen/_20sdp"
+            custom:inactiveBgColor="#FFF"
+            custom:textToggleLeft="@string/lng_switch_en"
+            custom:textToggleRight="@string/lng_switch_bn"
+            custom:toggleWidth="@dimen/_34sdp"
+            tools:ignore="SmallSp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ch_title"
+        android:fontFamily="@font/segoebold"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_15sdp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginBottom="@dimen/_5sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_chapters"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:clipToPadding="true"
+            tools:listitem="@layout/chapter_item_view" />
+
+    </RelativeLayout>
+</LinearLayout>

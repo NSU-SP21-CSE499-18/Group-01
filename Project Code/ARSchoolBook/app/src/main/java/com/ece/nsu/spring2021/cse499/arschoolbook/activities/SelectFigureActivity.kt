@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.adpters.SelectFigureAdapter
 import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ArUtil
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.sharedPreferences.UserChoiceSharedPref
 import com.google.ar.core.ArCoreApk
 
 class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigureAdapterCallback {
@@ -22,7 +23,6 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
 
     private var chapterNo: String = ""
     private var chapterName: String = ""
-    private lateinit var SELECTED_CHAPTER: String
     lateinit var data: Array<String>
 
     //UI
@@ -42,7 +42,6 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
         val bundle: Bundle? = intent.extras
         chapterNo = bundle?.get("Chapter-No").toString()
         chapterName = bundle?.get("Chapter-Name").toString()
-        SELECTED_CHAPTER = chapterNo
 
         //Init UI components
         chapterNoTv = findViewById(R.id.selected_ch_no_sf)
@@ -56,7 +55,15 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
 
         //Recycler View
         recyclerview.layoutManager = LinearLayoutManager(this)
-        data = getFigureNameListFromSelectedChapter(SELECTED_CHAPTER)
+
+        val userSelectedClassName = UserChoiceSharedPref.build(this)
+            .getSelectedClassName(getString(R.string.cl_7))
+
+        Log.d(TAG, "init: user selected class = "+userSelectedClassName)
+
+        data = ResourceFetcherUtil.getFigureNameListFromSelectedClassAndChapter(
+            className = userSelectedClassName, chapterNo = chapterNo, this)
+
         val adapter = SelectFigureAdapter(data, this)
         recyclerview.adapter = adapter
 
@@ -113,7 +120,7 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
     private fun showFigureIn3dView(figureName: String) {
         // open 3d view
 
-        val modelUrl = getModelUrlBasedOnFigureName(figureName)
+        val modelUrl = ResourceFetcherUtil.getModelUrlBasedOnFigureName(figureName, this)
 
         if(modelUrl==null || modelUrl.isEmpty()) {
             Log.d(TAG, "showFigureIn3dView: modelUrl not found for figure=$figureName")
@@ -136,79 +143,8 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
         startActivity(sceneViewerIntent)
     }
 
-    private fun getModelUrlBasedOnFigureName(figureName: String): String? {
-
-        when(figureName){
-
-            getString(R.string.fig_no_1_1) -> return ArUtil.VIRUS_MODEL_URL
-
-            getString(R.string.fig_no_2_1a) -> return ArUtil.PLANT_CELL_MODEL_URL
-
-            getString(R.string.fig_no_2_1b) -> return ArUtil.ANIMAL_CELL_MODEL_URL
-
-            getString(R.string.fig_no_2_6) -> return ArUtil.NEURON_MODEL_URL
-
-            getString(R.string.fig_no_4_3) -> return ArUtil.LUNG_MODEL_URL
-
-            getString(R.string.fig_no_5_1) -> return ArUtil.DIGESTIVE_MODEL_URL
-
-            getString(R.string.fig_no_12_1) -> return ArUtil.SOLAR_SYSTEM_MODEL_URL
-        }
-
-        return null
-    }
-
     private fun slideInLeftOutRight() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-    }
-
-    private fun getFigureNameListFromSelectedChapter(chapterNo: String): Array<String> {
-
-        when (chapterNo) {
-            "Chapter 1","অধ্যায় ১" -> {
-                return resources.getStringArray(R.array.fig_ch_1)
-            }
-            "Chapter 2","অধ্যায় ২" -> {
-                return resources.getStringArray(R.array.fig_ch_2)
-            }
-            "Chapter 3","অধ্যায় ৩" -> {
-                return resources.getStringArray(R.array.fig_ch_3)
-            }
-            "Chapter 4","অধ্যায় ৪" -> {
-                return resources.getStringArray(R.array.fig_ch_4)
-            }
-            "Chapter 5", "অধ্যায় ৫" -> {
-                return resources.getStringArray(R.array.fig_ch_5)
-            }
-            "Chapter 6", "অধ্যায় ৬" -> {
-                return resources.getStringArray(R.array.fig_ch_6)
-            }
-            "Chapter 7","অধ্যায় ৭" -> {
-                return resources.getStringArray(R.array.fig_ch_7)
-            }
-            "Chapter 8","অধ্যায় ৮" -> {
-                return resources.getStringArray(R.array.fig_ch_8)
-            }
-            "Chapter 9","অধ্যায় ৯" -> {
-                return resources.getStringArray(R.array.fig_ch_9)
-            }
-            "Chapter 10","অধ্যায় ১০" -> {
-                return resources.getStringArray(R.array.fig_ch_10)
-            }
-            "Chapter 11","অধ্যায় ১১" -> {
-                return resources.getStringArray(R.array.fig_ch_11)
-            }
-            "Chapter 12", "অধ্যায় ১২" -> {
-                return resources.getStringArray(R.array.fig_ch_12)
-            }
-            "Chapter 13", "অধ্যায় ১৩" -> {
-                return resources.getStringArray(R.array.fig_ch_13)
-            }
-            "Chapter 14", "অধ্যায় ১৪" -> {
-                return resources.getStringArray(R.array.fig_ch_14)
-            }
-            else -> return emptyArray()
-        }
     }
 
     private fun showToast(message: String) {

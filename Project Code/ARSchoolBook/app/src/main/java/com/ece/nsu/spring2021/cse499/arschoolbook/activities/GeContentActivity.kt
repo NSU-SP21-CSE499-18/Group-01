@@ -19,7 +19,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ece.nsu.spring2021.cse499.arschoolbook.R
 import com.ece.nsu.spring2021.cse499.arschoolbook.models.YouTubeVideo
-import com.ece.nsu.spring2021.cse499.arschoolbook.utils.NosqlDbPathUtils
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.ResourceFetcherUtil
+import com.ece.nsu.spring2021.cse499.arschoolbook.utils.sharedPreferences.UserChoiceSharedPref
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -33,7 +34,7 @@ import kotlin.collections.ArrayList
 /**
  * Activity Class for a single chapter on book
  */
-class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
+class GeContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     private val TAG: String = "CA-debug"
     private val REQUEST_CODE_FOR_SPEECH = 200
@@ -63,6 +64,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        slideInRightOutLeft()
         setContentView(R.layout.activity_content)
         init()
     }
@@ -85,9 +87,11 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         clearButton = findViewById(R.id.clearBtn)
 
         // get data for the UI
-        val bundle: Bundle? = intent.extras
-        chapterNo = bundle?.get("Chapter-No").toString()
-        chapterName = bundle?.get("Chapter-Name").toString()
+        val index = intent.getIntExtra("SelectedChapter",0)
+        chapterNo = resources.getStringArray(R.array.chapter_numbers)[index]
+
+        //If SELECTED_CLASS == 7 (skipping conditions for now)
+        chapterName = resources.getStringArray(R.array.chapter_names_c7)[index]
 
         // set data to UI
         chapterNoTv.text = chapterNo
@@ -102,7 +106,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         //Handling Text Input Edit Text (search box)
         searchET.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                var keyword = searchET.text
+                val keyword = searchET.text
                 performSearch(keyword)
                 return@OnEditorActionListener true
             }
@@ -210,24 +214,13 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
 
         firebaseDb = FirebaseDatabase.getInstance().reference
 
-        var dbPath: String = NosqlDbPathUtils.CLASS_7_BOOK_NODE + "/"
-        when(chapterNo){
-            getString(R.string.ch_no_1) -> dbPath += NosqlDbPathUtils.CHAPTER_1_NODE + "/"
-            getString(R.string.ch_no_2) -> dbPath += NosqlDbPathUtils.CHAPTER_2_NODE + "/"
-            getString(R.string.ch_no_3) -> dbPath += NosqlDbPathUtils.CHAPTER_3_NODE + "/"
-            getString(R.string.ch_no_4) -> dbPath += NosqlDbPathUtils.CHAPTER_4_NODE + "/"
-            getString(R.string.ch_no_5) -> dbPath += NosqlDbPathUtils.CHAPTER_5_NODE + "/"
-            getString(R.string.ch_no_6) -> dbPath += NosqlDbPathUtils.CHAPTER_6_NODE + "/"
-            getString(R.string.ch_no_7) -> dbPath += NosqlDbPathUtils.CHAPTER_7_NODE + "/"
-            getString(R.string.ch_no_8) -> dbPath += NosqlDbPathUtils.CHAPTER_8_NODE + "/"
-            getString(R.string.ch_no_9) -> dbPath += NosqlDbPathUtils.CHAPTER_9_NODE + "/"
-            getString(R.string.ch_no_10) -> dbPath += NosqlDbPathUtils.CHAPTER_10_NODE + "/"
-            getString(R.string.ch_no_11) -> dbPath += NosqlDbPathUtils.CHAPTER_11_NODE + "/"
-            getString(R.string.ch_no_12) -> dbPath += NosqlDbPathUtils.CHAPTER_12_NODE + "/"
-            getString(R.string.ch_no_13) -> dbPath += NosqlDbPathUtils.CHAPTER_13_NODE + "/"
-            getString(R.string.ch_no_14) -> dbPath += NosqlDbPathUtils.CHAPTER_14_NODE + "/"
-        }
-        dbPath += NosqlDbPathUtils.YOUTUBE_VIDEOS_NODE + "/"
+        val userSelectedClassName = UserChoiceSharedPref.build(this)
+            .getSelectedClassName(resources.getString(R.string.cl_7))
+
+        Log.d(TAG, "init: user selected class = "+userSelectedClassName)
+
+        val dbPath = ResourceFetcherUtil.getDbPathForChapterAndClass(className = userSelectedClassName,
+            chapterNo = chapterNo, this)
 
         firebaseDb.child(dbPath).get().addOnSuccessListener {
             for(snap in it.children) {
@@ -275,7 +268,7 @@ class ContentActivity : AppCompatActivity(), YouTubePlayerCallback {
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
         )
-        var lang = getResources().getConfiguration().getLocales().get(0).toString()
+        val lang = getResources().getConfiguration().getLocales().get(0).toString()
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang)
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Try saying some search keywords")
         try {

@@ -1,4 +1,4 @@
-package com.ece.nsu.spring2021.cse499.arschoolbook.activities
+package com.ece.nsu.spring2021.cse499.arschoolbook.activities.old
 
 import android.app.Activity
 import android.content.Intent

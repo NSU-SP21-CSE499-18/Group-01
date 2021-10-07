@@ -27,7 +27,7 @@ class GeHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        slideInRightOutLeft()
+
         setContentView(R.layout.activity_ge_home)
         val toggleSwitch : ToggleSwitch = findViewById(R.id.lng_switch_ge)
         val bundle: Bundle? = intent.extras
@@ -39,6 +39,9 @@ class GeHomeActivity : AppCompatActivity() {
             else toggleSwitch.checkedTogglePosition = 0
 
             CURRENT_SELECTED_LANGUAGE = language.toString()
+        }
+        else{
+            slideInRightOutLeft()
         }
 
 
@@ -80,11 +83,14 @@ class GeHomeActivity : AppCompatActivity() {
 
         setLocale(this,lang)
         val intent = Intent(this, GeHomeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         intent.putExtra("lng",lang)
+        overridePendingTransition(0, 0);
         intent.putExtra("SelectedClass",SELECTED_CLASS)
         finish()
+        overridePendingTransition(0, 0);
         startActivity(intent)
-        overridePendingTransition(0, 0)
+        //overridePendingTransition(0, 0)
     }
 
     private fun slideInRightOutLeft() {

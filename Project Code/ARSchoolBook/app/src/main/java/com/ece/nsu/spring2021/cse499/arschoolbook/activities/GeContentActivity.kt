@@ -290,4 +290,9 @@ class GeContentActivity : AppCompatActivity(), YouTubePlayerCallback {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
+    override fun onBackPressed() {
+        finish()
+        slideInLeftOutRight()
+
+    }
 }

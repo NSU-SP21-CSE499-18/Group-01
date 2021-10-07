@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:elevation="7dp"
+        android:background="@drawable/custom_item_background">
 
         <TextView
             android:id="@+id/className"
@@ -20,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Class 7"
-            android:textColor="#323232"
+            android:textColor="#FFF"
             android:fontFamily="@font/seguisb"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"

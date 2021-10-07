@@ -150,4 +150,9 @@ class SelectFigureActivity : AppCompatActivity(), SelectFigureAdapter.SelectFigu
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onBackPressed() {
+        finish()
+        slideInLeftOutRight()
+    }
 }

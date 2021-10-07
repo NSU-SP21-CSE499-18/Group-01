@@ -56,11 +56,12 @@
         android:layout_marginBottom="@dimen/_5sdp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_class"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recycler_view_class"
             android:layout_alignParentTop="true"
-            android:clipToPadding="true"/>
+            android:clipToPadding="true"
+            tools:listitem="@layout/class_item_view"/>
 
     </RelativeLayout>
 </LinearLayout>

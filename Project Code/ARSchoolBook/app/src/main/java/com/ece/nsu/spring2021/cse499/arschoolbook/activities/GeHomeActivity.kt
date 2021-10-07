@@ -97,4 +97,13 @@ class GeHomeActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
+    override fun onBackPressed() {
+        finish()
+        slideInLeftOutRight()
+
+    }
+
+    private fun slideInLeftOutRight() {
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
 }

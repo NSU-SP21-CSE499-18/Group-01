@@ -33,7 +33,7 @@ class HomeAdapter(private val chapterNumbers: Array<String>,private val chapterN
             intent.putExtra("SelectedChapter",position )
             context.startActivity(intent)
 
-            Toast.makeText(context, holder.chapterName.text, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, holder.chapterName.text, Toast.LENGTH_SHORT).show()
         }
     }
 
